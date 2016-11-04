@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "251250083759",
+    "project_id": "sigap-chat"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251250083759:android:d5c19c889634bf6d",
+        "android_client_info": {
+          "package_name": "com.app.sigap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4mQjtTXJxu1G-Js_vQ-xcr6vbkZ3ZtIc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

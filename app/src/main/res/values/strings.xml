@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">SIGAP</string>
+    <string name="title_activity_sendbird">SIGAP</string>
+    <string name="font_family_ubuntu"></string>
+    <string name="title_activity_forget_password">Forget Password</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_signup">Sign up</string>
+    <string name="title_activity_signup_verification">Sign up Verification</string>
+    <string name="title_activity_live_chat_sigap">Live Chat</string>
+
+    <!-- Application -->
+    <string name="app_logout">Keluar sekarang ?</string>
+    <!-- End of Application-->
+
+    <!-- Police -->
+    <string name="police_address">Jl.Kaptean Tanden No.1, Muarateweh, Barito Utara</string>
+    <string name="police_button_panic">
+        TEKAN TOMBOL 3x\n
+        APABILA DALAM KEADAAN DARURAT
+    </string>
+    <string name="police_call_center">Call Center (0519) 21062</string>
+    <string name="police_footer_memo">
+        Call Center (0519) 21062\n
+        Jl.Kaptean Tanden No.1, Muarateweh\n
+        Barito Utara
+    </string>
+    <string name="police_name">Polres Barito Utara</string>
+    <!-- End of Police-->
+
+    <!-- Dashboard Menu -->
+    <string name="dashboard_title_live_chat">   Live Chat</string>
+    <!-- End of Dashboard Menu-->
+
+    <!-- Splash -->
+    <string name="splash_app">
+        SIGAP
+        \n
+        POLRES BARITO UTARA
+    </string>
+    <string name="splash_thanks">
+        Terima kasih telah
+        \n
+        menggunakan aplikasi
+    </string>
+    <!-- End of splash -->
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_username">Username</string>
+    <string name="action_sign_in">Log In</string>
+    <string name="action_sign_in_short">Log In</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main_menu">Polres Barito Utara</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_live_chat">LiveChatActivity</string>
+</resources>

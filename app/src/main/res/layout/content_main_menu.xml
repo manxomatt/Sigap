@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.app.master.MainMenuActivity"
+    tools:showIn="@layout/app_bar_main_menu">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            app:srcCompat="@drawable/button_panic"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="bottom|center_horizontal"
+            android:id="@+id/label_button_panic_img"
+            android:layout_weight="0.00" />
+
+        <TextView
+            android:text="@string/police_button_panic"
+            android:textSize="6pt"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp"
+            android:textColor="#ffffff"
+            android:id="@+id/label_button_panic_text"
+            android:clickable="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:textIsSelectable="true"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Live chat -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/background_live_chat"
+                android:layout_weight="0.00" >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/button_promoter"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:gravity="center|center_horizontal"
+                    android:id="@+id/label_button_promoter_img"
+                    android:layout_weight="0.00" />
+
+                <TextView
+                    android:text="Live Chat"
+                    android:textColor="#000000"
+                    android:textSize="12pt"
+                    android:textStyle="normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="35dp"
+                    android:id="@+id/label_button_promoter_text"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="left|center_vertical"
+                    android:textIsSelectable="true"/>
+
+            </TableRow>
+            <!-- End of live chat -->
+
+            <!-- Bantuan terdekat -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/background_bantuan_terdekat"
+                android:layout_weight="0.00" >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/button_sherif"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:id="@+id/label_button_sherif_img"
+                    android:layout_weight="0.00" />
+
+                <TextView
+                    android:text="Bantuan Terdekat"
+                    android:textColor="#FFDD15"
+                    android:textSize="12pt"
+                    android:textStyle="normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="35dp"
+                    android:id="@+id/label_button_sherif_text"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="left|center_vertical"
+                    android:textIsSelectable="true"/>
+
+            </TableRow>
+            <!-- End of bantuan terdekat -->
+
+            <!-- Pelayanan polres -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/background_live_chat"
+                android:layout_weight="0.00" >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/button_police"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:id="@+id/label_button_police_img"
+                    android:layout_weight="0.00" />
+
+                <TextView
+                    android:text="Pelayanan Polres"
+                    android:textColor="#000000"
+                    android:textSize="12pt"
+                    android:textStyle="normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="35dp"
+                    android:id="@+id/label_button_police_text"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="left|center_vertical"
+                    android:textIsSelectable="true"/>
+
+            </TableRow>
+            <!-- End of pelayanan polres -->
+
+            <TextView
+                android:text="@string/police_footer_memo"
+                android:textSize="6pt"
+                android:textStyle="normal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="#ffffff"
+                android:id="@+id/label_footer_memo"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:textIsSelectable="true"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_user"
+            android:title="My Profile" />
+    </group>
+    -->
+
+    <item
+        android:id="@+id/nav_menu_informasi"
+        android:title="Informasi">
+        <menu>
+            <item
+                android:id="@+id/nav_police_news"
+                android:icon="@drawable/news"
+                android:title="Berita Polres"/>
+            <item
+                android:id="@+id/nav_police_about"
+                android:icon="@drawable/police"
+                android:title="Tentang Polres"/>
+            <item
+                android:id="@+id/nav_app_about"
+                android:icon="@drawable/enter_pin"
+                android:title="Tentang Aplikasi"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/nav_menu_aplikasi"
+        android:title="Aplikasi">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/settings"
+                android:title="Pengaturan" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/safe_out"
+                android:title="Keluar" />
+        </menu>
+    </item>
+
+</menu>

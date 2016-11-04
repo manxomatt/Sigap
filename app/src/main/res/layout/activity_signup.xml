@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/back_white"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <!-- Nomor KTP -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Nomor KTP"
+                android:layout_width="0dp"
+                android:layout_marginStart="35dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="33dp"
+                android:id="@+id/label_nomor_ktp"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
+
+            <EditText
+                android:layout_marginStart="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="35dp"
+                android:inputType="number"
+                android:text=""
+                android:maxLength="16"
+                android:ems="10"
+                android:id="@+id/text_nomor_ktp"
+                android:hint=""
+                android:layout_weight="1" />
+        </TableRow>
+        <!-- End of Nomor KTP -->
+
+        <!-- Nama Lengkap -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Nama Lengkap"
+                android:layout_width="0dp"
+                android:layout_marginStart="35dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="33dp"
+                android:id="@+id/label_nama_lengkap"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
+
+            <EditText
+                android:layout_marginStart="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="35dp"
+                android:inputType="textCapWords"
+                android:text=""
+                android:capitalize="sentences"
+                android:ems="10"
+                android:id="@+id/text_nama_lengkap"
+                android:hint=""
+                android:layout_weight="1" />
+        </TableRow>
+        <!-- End of Nama Lengkap -->
+
+        <!-- Nomor Hand Phone -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="No. Hand Phone"
+                android:layout_width="0dp"
+                android:layout_marginStart="35dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="33dp"
+                android:id="@+id/label_no_hp"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
+
+            <EditText
+                android:layout_marginStart="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="35dp"
+                android:inputType="number"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/text_no_hp"
+                android:hint=""
+                android:layout_weight="1" />
+        </TableRow>
+        <!-- End of Nomor Hand Phone -->
+
+        <!-- Email -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Email"
+                android:layout_width="0dp"
+                android:layout_marginStart="35dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="33dp"
+                android:id="@+id/label_email"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
+
+            <EditText
+                android:layout_marginStart="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="35dp"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/text_email"
+                android:hint=""
+                android:layout_weight="1" />
+        </TableRow>
+        <!-- End of Email -->
+
+        <!-- Alamat Rumah -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Alamat Rumah"
+                android:layout_width="0dp"
+                android:layout_marginStart="35dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="33dp"
+                android:id="@+id/label_alamat_rumah"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
+
+            <EditText
+                android:layout_marginStart="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="35dp"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/text_alamat_rumah"
+                android:hint=""
+                android:layout_weight="1" />
+        </TableRow>
+        <!-- End of Alamat Rumah -->
+
+        <!-- Button Submit -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:text="Kembali"
+                android:layout_width="0dp"
+                android:layout_marginStart="35dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/button_back_login"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Proses"
+                android:layout_width="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/button_save_signup"
+                android:layout_weight="1" />
+
+        </TableRow>
+        <!-- End of Button Submit -->
+
+    </TableLayout>
+
+</RelativeLayout>

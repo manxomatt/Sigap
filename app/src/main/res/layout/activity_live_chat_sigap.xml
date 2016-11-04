@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_live_chat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.sigap.LiveChatActivity" >
+    <!-- tools:context="com.app.sigap.LiveChatActivity" -->
+
+    <include
+        layout="@layout/sendbird_fragment_group_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
