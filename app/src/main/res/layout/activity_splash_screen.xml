@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,7 +9,8 @@
         android:src="@drawable/img_splash"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -25,8 +27,8 @@
             android:id="@+id/img_logo_polres"
             android:layout_weight="0.18"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="75dp" />
+            android:layout_marginTop="75dp"
+            tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -47,7 +49,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:textIsSelectable="true"/>
+                android:textIsSelectable="true"
+                tools:ignore="ObsoleteLayoutParam" />
 
         </TableRow>
 
@@ -70,7 +73,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:textIsSelectable="true"/>
+                android:textIsSelectable="true"
+                tools:ignore="ObsoleteLayoutParam" />
 
         </TableRow>
 

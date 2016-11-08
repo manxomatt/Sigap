@@ -38,6 +38,15 @@ public class SQLConnection {
     private static final String URL_HOST = "http://110.50.84.171";
 
     /**
+     * URL Bantuan Terdekat (Polisi)
+     * */
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_SELECT = URL_HOST + "/sigap_android/show_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_INSERT = URL_HOST + "/sigap_android/insert_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_EDIT = URL_HOST + "/sigap_android/edit_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_UPDATE = URL_HOST + "/sigap_android/update_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_DELETE = URL_HOST + "/sigap_android/delete_help_police.php";
+
+    /**
      * URL Login
      * */
     public static final String URL_LOGIN = URL_HOST + "/sigap_android/new_login.php";

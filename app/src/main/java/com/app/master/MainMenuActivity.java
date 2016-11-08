@@ -13,18 +13,26 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.sigap.BantuanTerdekatActivity;
 import com.app.sigap.LoginActivity;
 import com.app.sigap.R;
+import com.app.sigap.TentangPolresActivity;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
+import com.lib.font.CustomTypefaceSpan;
+
+import java.util.ArrayList;
 
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,11 +52,21 @@ public class MainMenuActivity extends AppCompatActivity
     private TextView label_police_address;
 
     private ImageView label_button_promoter_img;
+    private ImageView label_button_sherif_img;
+    private ImageView label_button_police_img;
 
     private MenuItem nav_menu_informasi;
     private MenuItem nav_menu_aplikasi;
     /**
      * End of ui reference
+     * */
+
+    /**
+     * Variables
+     * */
+
+    /**
+     * End of Variables
      * */
 
     @Override
@@ -68,6 +86,7 @@ public class MainMenuActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.);
@@ -93,7 +112,15 @@ public class MainMenuActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        /**
+         * Dashboard listener
+         * */
         ClickLiveChat();
+
+        ClickBantuanTerdekat();
+        /**
+         * End of Dashboard listener
+         * */
     }
 
     @Override
@@ -110,9 +137,11 @@ public class MainMenuActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        setFontNavigationOpen();
         return true;
     }
 
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -127,20 +156,19 @@ public class MainMenuActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+    */
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
 
-        setFontNavigationOpen();
-
         int id = item.getItemId();
 
         if (id == R.id.nav_police_news) {
 
         } else if (id == R.id.nav_police_about) {
-
+            NavTentangPolres();
         } else if (id == R.id.nav_app_about) {
 
         } else if (id == R.id.nav_setting) {
@@ -180,6 +208,33 @@ public class MainMenuActivity extends AppCompatActivity
                 //Intent intent = new Intent(MainMenuActivity.this, com.activities.LiveChatActivity.class);
                 //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
                 Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void ClickBantuanTerdekat ()
+    {
+        label_button_sherif_text = (TextView) findViewById(R.id.label_button_sherif_text);
+        label_button_sherif_img = (ImageView) findViewById(R.id.label_button_sherif_img);
+
+        label_button_sherif_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start bantuan terdekat
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, BantuanTerdekatActivity.class);
+                startActivity(intent);
+            }
+        });
+        label_button_sherif_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start bantuan terdekat
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, BantuanTerdekatActivity.class);
                 startActivity(intent);
             }
         });
@@ -254,6 +309,12 @@ public class MainMenuActivity extends AppCompatActivity
         alertDialog.show();
     }
 
+    private void NavTentangPolres ()
+    {
+        Intent intent = new Intent(MainMenuActivity.this, TentangPolresActivity.class);
+        startActivity(intent);
+    }
+
     @SuppressWarnings("")
     private void setFontOnBody()
     {
@@ -286,27 +347,58 @@ public class MainMenuActivity extends AppCompatActivity
     @SuppressWarnings("")
     private void setFontNavigationOpen()
     {
+
         label_police_name = (TextView) findViewById(R.id.label_police_name);
         label_police_call_center = (TextView) findViewById(R.id.label_police_call_center);
         label_police_address = (TextView) findViewById(R.id.label_police_address);
-        nav_menu_informasi = (MenuItem) findViewById(R.id.nav_menu_informasi);
-        nav_menu_aplikasi = (MenuItem) findViewById(R.id.nav_menu_aplikasi);
+
 
         /**
          * Set typeface
          * */
+
         Typeface typeface = Typeface.createFromAsset(
             getApplicationContext().getAssets(),
             "fonts/titillium_regular_webfont.ttf"
         );
 
+
         /**
          * Set custom fonts
          * */
+
         label_police_name.setTypeface(typeface);
         label_police_call_center.setTypeface(typeface);
         label_police_address.setTypeface(typeface);
-        //nav_menu_informasi.setTy
+
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        Menu m = navigationView.getMenu();
+
+        for (int i=0;i<m.size();i++) {
+            MenuItem mi = m.getItem(i);
+
+            //for aapplying a font to subMenu ...
+            SubMenu subMenu = mi.getSubMenu();
+            if (subMenu!=null && subMenu.size() >0 ) {
+                for (int j=0; j < subMenu.size();j++) {
+                    MenuItem subMenuItem = subMenu.getItem(j);
+                    applyFontToMenuItem(subMenuItem);
+                }
+            }
+
+            //the method we have create in activity
+            applyFontToMenuItem(mi);
+        }
+
+    }
+
+    private void applyFontToMenuItem(MenuItem mi) {
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/titillium_regular_webfont.ttf");
+        SpannableString mNewTitle = new SpannableString(mi.getTitle());
+        mNewTitle.setSpan(new CustomTypefaceSpan("fonts/titillium_regular_webfont.ttf" , font), 0 , mNewTitle.length(),  Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        mi.setTitle(mNewTitle);
     }
 
 }

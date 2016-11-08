@@ -15,7 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        tools:ignore="UselessParent">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -25,7 +27,8 @@
             android:layout_centerHorizontal="true"
             android:gravity="bottom|center_horizontal"
             android:id="@+id/label_button_panic_img"
-            android:layout_weight="0.00" />
+            android:layout_weight="0.00"
+            tools:ignore="ContentDescription,InefficientWeight,ObsoleteLayoutParam" />
 
         <TextView
             android:text="@string/police_button_panic"
@@ -40,7 +43,8 @@
             android:id="@+id/label_button_panic_text"
             android:clickable="true"
             android:gravity="center_vertical|center_horizontal"
-            android:textIsSelectable="true"/>
+            android:textIsSelectable="true"
+            tools:ignore="ObsoleteLayoutParam" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -66,7 +70,8 @@
                     android:layout_marginEnd="0dp"
                     android:gravity="center|center_horizontal"
                     android:id="@+id/label_button_promoter_img"
-                    android:layout_weight="0.00" />
+                    android:layout_weight="0.00"
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
                 <TextView
                     android:text="Live Chat"
@@ -85,7 +90,8 @@
                     android:layout_weight="1"
                     android:clickable="true"
                     android:gravity="left|center_vertical"
-                    android:textIsSelectable="true"/>
+                    android:textIsSelectable="true"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
             </TableRow>
             <!-- End of live chat -->
@@ -109,7 +115,8 @@
                     android:layout_marginEnd="0dp"
                     android:gravity="bottom|center_horizontal"
                     android:id="@+id/label_button_sherif_img"
-                    android:layout_weight="0.00" />
+                    android:layout_weight="0.00"
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
                 <TextView
                     android:text="Bantuan Terdekat"
@@ -128,7 +135,8 @@
                     android:layout_weight="1"
                     android:clickable="true"
                     android:gravity="left|center_vertical"
-                    android:textIsSelectable="true"/>
+                    android:textIsSelectable="true"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
             </TableRow>
             <!-- End of bantuan terdekat -->
@@ -152,7 +160,8 @@
                     android:layout_marginEnd="0dp"
                     android:gravity="bottom|center_horizontal"
                     android:id="@+id/label_button_police_img"
-                    android:layout_weight="0.00" />
+                    android:layout_weight="0.00"
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
                 <TextView
                     android:text="Pelayanan Polres"
@@ -171,7 +180,8 @@
                     android:layout_weight="1"
                     android:clickable="true"
                     android:gravity="left|center_vertical"
-                    android:textIsSelectable="true"/>
+                    android:textIsSelectable="true"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
 
             </TableRow>
             <!-- End of pelayanan polres -->
@@ -191,7 +201,8 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:textIsSelectable="true"/>
+                android:textIsSelectable="true"
+                tools:ignore="ObsoleteLayoutParam" />
 
         </LinearLayout>
 

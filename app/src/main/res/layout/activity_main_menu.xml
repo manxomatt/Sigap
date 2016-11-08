@@ -12,7 +12,8 @@
         android:src="@drawable/img_dashboard_red"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
 
     <include
         layout="@layout/app_bar_main_menu"
@@ -26,6 +27,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main_menu"
-        app:menu="@menu/activity_main_menu_drawer" />
+        app:menu="@menu/activity_main_menu_drawer"
+        app:itemTextAppearance="@style/NavigationDrawerStyle"/>
 
 </android.support.v4.widget.DrawerLayout>

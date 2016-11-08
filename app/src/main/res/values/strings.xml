@@ -2,11 +2,13 @@
     <string name="app_name">SIGAP</string>
     <string name="title_activity_sendbird">SIGAP</string>
     <string name="font_family_ubuntu"></string>
+    <string name="title_activity_bantuan_terdekat">Bantuan Terdekat</string>
     <string name="title_activity_forget_password">Forget Password</string>
+    <string name="title_activity_live_chat_sigap">Live Chat</string>
     <string name="title_activity_login">Sign in</string>
     <string name="title_activity_signup">Sign up</string>
     <string name="title_activity_signup_verification">Sign up Verification</string>
-    <string name="title_activity_live_chat_sigap">Live Chat</string>
+    <string name="title_activity_tentang_polres">Tentang Polres</string>
 
     <!-- Application -->
     <string name="app_logout">Keluar sekarang ?</string>

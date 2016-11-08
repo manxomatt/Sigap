@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_tentang_polres"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_dashboard_red"
+    tools:context="com.app.sigap.TentangPolresActivity">
+
+    <RelativeLayout
+        android:id="@+id/top_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffe100"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/sendbird_arrow_round_left_red"
+                android:background="#00000000"
+                android:layout_gravity="center|center_vertical"
+                android:scaleType="fitXY"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                tools:ignore="InefficientWeight,RtlHardcoded">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/police"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
+                        android:scaleType="fitXY"
+                        android:id="@+id/label_img_title_live_chat"
+                        tools:ignore="ContentDescription" />
+                    <TextView
+                        android:id="@+id/txt_channel_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="10pt"
+                        android:textStyle="normal"
+                        android:textColor="#000000"
+                        android:text=" Tentang Polres"
+                        android:gravity="left|center_vertical"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </TableRow>
+
+            </RelativeLayout>
+            <!--
+            <ImageButton
+                android:id="@+id/btn_settings"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/sendbird_btn_setting"
+                android:background="#00000000"
+                android:layout_gravity="center"
+                />
+            -->
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

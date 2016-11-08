@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,7 +9,8 @@
         android:src="@drawable/img_login_new"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -26,7 +28,8 @@
             android:layout_marginTop="25dp"
             android:gravity="bottom|center_horizontal"
             android:id="@+id/img_logo_polres"
-            android:layout_weight="0.05" />
+            android:layout_weight="0.05"
+            tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
     </TableLayout>
 
@@ -55,7 +58,8 @@
                 android:layout_marginTop="33dp"
                 android:textColor="#ffffff"
                 android:id="@+id/label_username"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
         </TableRow>
 
@@ -99,7 +103,8 @@
                 android:layout_marginTop="33dp"
                 android:textColor="#ffffff"
                 android:id="@+id/label_password"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
         </TableRow>
 
@@ -145,7 +150,8 @@
                 android:layout_marginBottom="10dp"
                 android:background="#ffe100"
                 android:id="@+id/button_login"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
         </TableRow>
         <!-- End of Button Submit -->
@@ -172,7 +178,8 @@
                 android:clickable="true"
                 android:drawableTop="@drawable/unlock_yellow"
                 android:gravity="bottom|center_horizontal"
-                android:textIsSelectable="true"/>
+                android:textIsSelectable="true"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             <TextView
                 android:text="Daftar Akun Baru"
@@ -191,7 +198,8 @@
                 android:clickable="true"
                 android:drawableTop="@drawable/user_add"
                 android:gravity="bottom|center_horizontal"
-                android:textIsSelectable="true"/>
+                android:textIsSelectable="true"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
         </TableRow>
         <!-- End of Link Forget Password & Signup -->
