@@ -40,6 +40,7 @@ public class SQLConnection {
     /**
      * URL Bantuan Terdekat (Polisi)
      * */
+    public static final String URL_BANTUAN_TERDEKAT_POLISI = "http://110.50.84.171/sigap_android/kuncoro_crud/";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_SELECT = URL_HOST + "/sigap_android/show_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_INSERT = URL_HOST + "/sigap_android/insert_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_EDIT = URL_HOST + "/sigap_android/edit_help_police.php";

@@ -75,9 +75,17 @@ public class BantuanTerdekatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /**
+                 * End of bantuan terdekat
+                 * */
+                finishAffinity();
+
+                /**
                  * Launch data bantuan terdekat polisi
                  * */
-                Intent intent = new Intent(BantuanTerdekatActivity.this, BantuanTerdekatPolisiActivity.class);
+                Intent intent = new Intent(
+                    BantuanTerdekatActivity.this,
+                    PolisiActivity.class
+                );
                 startActivity(intent);
             }
         });
@@ -85,9 +93,17 @@ public class BantuanTerdekatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /**
+                 * End of bantuan terdekat
+                 * */
+                finishAffinity();
+
+                /**
                  * Launch data bantuan terdekat polisi
                  * */
-                Intent intent = new Intent(BantuanTerdekatActivity.this, BantuanTerdekatPolisiActivity.class);
+                Intent intent = new Intent(
+                    BantuanTerdekatActivity.this,
+                    PolisiActivity.class
+                );
                 startActivity(intent);
             }
         });

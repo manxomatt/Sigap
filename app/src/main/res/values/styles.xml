@@ -78,6 +78,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Tentang Polres Theme -->
+    <style name="DataPolres" parent="Theme.AppCompat.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

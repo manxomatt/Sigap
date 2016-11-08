@@ -6,6 +6,7 @@
     <string name="title_activity_forget_password">Forget Password</string>
     <string name="title_activity_live_chat_sigap">Live Chat</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_polisi">Polisi</string>
     <string name="title_activity_signup">Sign up</string>
     <string name="title_activity_signup_verification">Sign up Verification</string>
     <string name="title_activity_tentang_polres">Tentang Polres</string>

@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.sigap">
 
-    <uses-sdk android:minSdkVersion="19" />
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,8 +10,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -90,23 +86,22 @@
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/BantuanTerdekat" />
-        <activity android:name=".BantuanTerdekatPolisiActivity"
-            android:label="@string/title_activity_bantuan_terdekat"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/BantuanTerdekat" />
-        <activity android:name=".BantuanTerdekatPolisiDataActivity"
-            android:label="@string/title_activity_bantuan_terdekat"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/BantuanTerdekat" />
 
         <!-- Tentang Polisi -->
-        <activity android:name=".TentangPolresActivity"
+        <activity
+            android:name=".TentangPolresActivity"
             android:label="@string/title_activity_tentang_polres"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/TentangPolres"/>
+            android:theme="@style/TentangPolres" />
+
+        <!-- Data Kepolisian -->
+        <activity android:name=".PolisiActivity"
+            android:label="@string/title_activity_polisi"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/DataPolres" />
     </application>
 
 </manifest>
