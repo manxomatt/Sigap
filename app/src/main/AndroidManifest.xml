@@ -16,7 +16,7 @@
         android:allowBackup="true"
         android:icon="@drawable/logo_new"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme">
 
         <!-- Splash Screen -->
         <activity
@@ -88,21 +88,78 @@
             android:screenOrientation="portrait"
             android:theme="@style/BantuanTerdekat" />
 
-        <!-- Tentang Polisi -->
+        <!-- Berita Polres -->
+        <activity
+            android:name=".BeritaPolresActivity"
+            android:label="@string/title_activity_berita_polres"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/SplashScreen" />
+
+        <!-- Tentang Polres -->
         <activity
             android:name=".TentangPolresActivity"
             android:label="@string/title_activity_tentang_polres"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/TentangPolres" />
+            android:supportsRtl="true"
+            android:theme="@style/SplashScreen" />
+
+        <!-- Tentang Aplikasi -->
+        <activity
+            android:name=".AboutAppActivity"
+            android:label="@string/title_activity_about_app"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/SplashScreen" />
+
+        <!-- Tentang Aplikasi Revisi -->
+        <activity
+            android:name=".AboutApp2Activity"
+            android:label="@string/title_activity_about_app"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/SplashScreen" />
 
         <!-- Data Kepolisian -->
-        <activity android:name=".PolisiActivity"
+        <activity
+            android:name=".PolisiActivity"
             android:label="@string/title_activity_polisi"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/DataPolres" />
+
+        <!-- Data Rumah Sakit -->
+        <activity
+            android:name=".RumahSakitActivity"
+            android:label="@string/title_activity_rs"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/DataPolres" />
+
+        <!-- Data Pemadam Kebakaran -->
+        <activity
+            android:name=".DamkarActivity"
+            android:label="@string/title_activity_damkar"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/DataPolres" />
+
+        <!-- Data SPBU -->
+        <activity
+            android:name=".SPBUActivity"
+            android:label="@string/title_activity_spbu"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/DataPolres" />
+
     </application>
 
 </manifest>

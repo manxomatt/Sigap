@@ -41,7 +41,7 @@
                     android:layout_marginRight="40dp"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:gravity="center|center_horizontal"
+                    android:gravity="center_horizontal"
                     tools:ignore="InefficientWeight,RtlHardcoded">
 
                     <TableRow
@@ -53,7 +53,7 @@
                             android:layout_height="match_parent"
                             android:textSize="10pt"
                             android:textStyle="normal"
-                            android:text="Tentang Polres"
+                            android:text="Tentang Aplikasi"
                             android:textColor="#ffffff"
                             android:gravity="left|center_vertical"
                             tools:ignore="HardcodedText,RtlHardcoded" />
@@ -84,34 +84,161 @@
             <android.support.design.widget.TabItem
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="KAPOLRES"
+                android:text="Officer"
                 tools:ignore="HardcodedText" />
 
             <android.support.design.widget.TabItem
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Informasi"
+                android:text="Team"
                 tools:ignore="HardcodedText" />
 
             <android.support.design.widget.TabItem
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Kontak"
+                android:text="Company"
                 tools:ignore="HardcodedText" />
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_kapolres" />
-
-    <!--
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nsv_0"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
         android:visibility="visible">
+
+        <!-- Idx 0 -->
+        <LinearLayout
+            android:id="@+id/id_ln_tab_app_about_idx_0"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:visibility="visible">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_name_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jeri Munajat"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_job_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CEO of PT. Inrelt"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent"/>
+            <!-- End of separator -->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_name_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Harizal"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_job_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HR Manager of PT. Inrelt"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent"/>
+            <!-- End of separator -->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_name_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ruli"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_job_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Company Relation of PT. Inrelt"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent"/>
+            <!-- End of separator -->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_name_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hadi"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/officer_job_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Marketing Manager of PT. Inrelt"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+        </LinearLayout>
+        <!-- End of idx 0 -->
+
     </android.support.v4.widget.NestedScrollView>
-    -->
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nsv_1"
@@ -132,15 +259,14 @@
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:visibility="visible">
 
-            <!-- Visi -->
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/info_head_01"
+                    android:id="@+id/dev_name_01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Visi"
+                    android:text="Yogy Gumbira"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
             </TableRow>
@@ -148,14 +274,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/info_value_01"
+                    android:id="@+id/dev_job_01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/polres_visi"
-                    android:layout_gravity="left|center_horizontal"
-                    tools:ignore="HardcodedText,TooManyViews" />
+                    android:text="Web Developer Specialist of PT. Inrelt"
+                    tools:ignore="HardcodedText" />
             </TableRow>
-            <!-- End of Visi -->
 
             <!-- Separator -->
             <TableRow
@@ -163,18 +287,17 @@
                 android:layout_height="1.5dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                />
+                android:background="@color/colorAccent"/>
             <!-- End of separator -->
 
-            <!-- Misi -->
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/info_head_02"
+                    android:id="@+id/dev_name_02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Misi"
+                    android:text="Ahmad Fadhli"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
             </TableRow>
@@ -182,14 +305,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/info_value_02"
+                    android:id="@+id/dev_job_02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/polres_misi"
-                    android:layout_gravity="left|center_horizontal"
+                    android:text="Android Developer of PT. Inrelt"
                     tools:ignore="HardcodedText" />
             </TableRow>
-            <!-- End of Misi -->
 
             <!-- Separator -->
             <TableRow
@@ -197,18 +318,17 @@
                 android:layout_height="1.5dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                />
+                android:background="@color/colorAccent"/>
             <!-- End of separator -->
 
-            <!-- Struktur Organisasi -->
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/info_head_03"
+                    android:id="@+id/dev_name_03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Struktur Organisasi"
+                    android:text="Yudi"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
             </TableRow>
@@ -216,13 +336,136 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/info_value_03"
+                    android:id="@+id/dev_job_03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/polres_struktur_organisasi"
-                    tools:ignore="HardcodedText,TooManyViews" />
+                    android:text="Amazon Web Service Developer"
+                    tools:ignore="HardcodedText" />
             </TableRow>
-            <!-- End of Struktur Organisasi -->
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent"/>
+            <!-- End of separator -->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/dev_name_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bli Eka Parama Dharmika"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/dev_job_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="iOS Developer"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent"/>
+            <!-- End of separator -->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/dev_name_05"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delta Purna Widyangga"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/dev_job_05"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Js Developer of Qiscus Indonesia"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent"/>
+            <!-- End of separator -->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/designer_name_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Restu Nurrakhman"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/designer_job_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Graphic Designer Specialist of PT. Inrelt"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorAccent"/>
+            <!-- End of separator -->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/designer_name_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fatkhul Lifidian"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/designer_job_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Animator Specialist of Adobe Design"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
 
         </LinearLayout>
         <!-- End of idx 1 -->
@@ -252,10 +495,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/kontak_01"
+                    android:id="@+id/office_01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Alamat"
+                    android:text="Kantor Pusat"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
             </TableRow>
@@ -263,10 +506,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/kontak_02"
+                    android:id="@+id/office_02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Jl.Kaptean Tanden No.1, Muarateweh\nBarito Utara , Kalimantan Tengah"
+                    android:text="Jl.Futsal II No.D1 Arcamanik 40293\nKota Bandung , Jawa Barat"
                     tools:ignore="HardcodedText" />
             </TableRow>
 
@@ -283,10 +526,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/kontak_03"
+                    android:id="@+id/office_03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Telepon"
+                    android:text="Telepon dan Fax"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
             </TableRow>
@@ -294,11 +537,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/kontak_04"
+                    android:id="@+id/office_04"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="(0519) 21062"
-                    tools:ignore="HardcodedText,TooManyViews" />
+                    android:text="022 - 8724 1058\n022 - 8724 1057"
+                    tools:ignore="HardcodedText" />
             </TableRow>
 
             <!-- Separator -->
@@ -314,7 +557,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/kontak_05"
+                    android:id="@+id/office_05"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email"
@@ -325,41 +568,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/kontak_06"
+                    android:id="@+id/office_06"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="info@polresbaritoutara.com"
+                    android:text="headoffice@inrelt.com"
                     tools:ignore="HardcodedText" />
-            </TableRow>
-
-            <!-- Separator -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="1.5dp"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:background="@color/colorAccent"/>
-            <!-- End of separator -->
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/kontak_07"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Peta Lokasi"
-                    android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
-            </TableRow>
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/img_polres_gmaps"
-                    android:layout_gravity="center_vertical|center_horizontal"/>
             </TableRow>
 
         </LinearLayout>

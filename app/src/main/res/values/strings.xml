@@ -1,15 +1,51 @@
 <resources>
     <string name="app_name">SIGAP</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="app_copyright">
+        © 2016 Polres Barito Utara
+        \n
+        Hak cipta dilindungi oleh UU no.28 tahun 2014
+    </string>
     <string name="title_activity_sendbird">SIGAP</string>
     <string name="font_family_ubuntu"></string>
+    <string name="title_activity_about_app">Tentang Aplikasi</string>
+    <string name="title_activity_about_polres">Tentang Polres</string>
     <string name="title_activity_bantuan_terdekat">Bantuan Terdekat</string>
+    <string name="title_activity_berita_polres">Berita Polres</string>
     <string name="title_activity_forget_password">Forget Password</string>
     <string name="title_activity_live_chat_sigap">Live Chat</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_kapolres">Kapolres</string>
     <string name="title_activity_polisi">Polisi</string>
+    <string name="title_activity_rs">Rumah Sakit</string>
+    <string name="title_activity_damkar">Pemadam Kebakaran</string>
+    <string name="title_activity_spbu">Pom Bensin</string>
     <string name="title_activity_signup">Sign up</string>
     <string name="title_activity_signup_verification">Sign up Verification</string>
     <string name="title_activity_tentang_polres">Tentang Polres</string>
+
+    <!-- Informasi Polres -->
+    <string name="polres_visi">
+        Terwujudnya Polri yang professional, unggul dan dapat dipercaya masyarakat guna mendukung terciptanya kamdagri diwilayah hukum Polres Barito Utara yang berdaulat, mandiri dan berkepribadian dengan berlandaskan gotong royong.
+    </string>
+    <string name="polres_misi">
+        Sebagai organisasi yang bertugas sebagai pelindung, pengayom dan pelayan masyarakat, penegakkan hukum serta pemelihara keamanan dan ketertiban serta keselamatan dan kelancaran lalu lintas menuju kehidupan masyarakat Iya Mulik Bengkang Turan maju dan mandiri : Mewujudkan pemuliaan dan kepercayaan public (trust building) melalui perlindungan, pengayoman, dan pelayanan sampai lini terdepan melalui konsep “Polda cukup-Polres besar-Polsek Kuat”;
+        \n1. Mewujudkan pemberdayaan kualitas sumber daya manusia Polres Barito Utara yang profesional, Proporsioanl dan kompeten baik secara kualitas maupun kuantitas dalam rangka mendukung kamtibmas diwilayah hukum Polres Barito Utara.
+        \n2. Meningkatkan motivasi dan kesejahteraan personel Polres Barito Utara (well motivated dan welfare);
+        \n3. Mewujudkan deteksi aksi melalui kegiatan deteksi dini, peringatan dini dan cegah dini secara cepat akurat dan efektif;
+        \n4. Mewujudkan pemeliharaan keamanan dan ketertiban masyarakat dengan pemahaman, kesadaran dan kepatuhan hukum melalui peningkatan peran bhabinkamtibmas dalam mengimplementasikan strategi polmas yang berada di desa/kelurahan serta membangun sinergi polisional yang proaktif dengan kementrian/lembaga.
+        \n5. Mewujudkan penegakan hukum yang berkeadilan, menjunjung tinggi HAM, anti KKN dan anti kekerasan diwilayah hukum Polres Barito Utara;
+        \n6. Mewujudkan keamanan, keselamatan, ketertiban dan kelancaran berlalu lintas untuk menjamin keselamatan dan kelancaran arus orang dan barang;
+        \n7. Mewujudkan keamanan, keselamatan dan ketertiban di kawasan perairan laut dan sungai untuk mendukung visi pembangunan wilayah kemaritiman Polres Barito Utara;
+        \n8. Mewujudkan anggota Polri Polres Barito Utara yang kompeten melalui proses assessment, pendidikan dan pelatihan baik dalam maupun luar negeri;
+        \n9. Mewujudkan intelejen Kepolisian yang professional dan kompeten dalam upaya pencegahan dini kriminalitas dan pengambilan keputusan yang tepat pada kebijakan keamanan di wilayah hukum Polres Barito Utara.
+    </string>
+    <string name="polres_struktur_organisasi">
+        <a href="http://www.polresbaritoutara.com/images/thumbnails/images/website/struktur-org-revisi-barut-fill-998x1524.jpg">
+            Download here
+        </a>
+    </string>
+    <!-- End of Informasi Polres-->
 
     <!-- Application -->
     <string name="app_logout">Keluar sekarang ?</string>

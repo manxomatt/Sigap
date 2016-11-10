@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.app.sigap.PolisiActivity">
+    tools:context="com.app.sigap.RumahSakitActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:background="@drawable/img_bantuan_terdekat_polisi"
+                        android:background="@drawable/img_bantuan_terdekat_rumah_sakit"
                         android:gravity="center_horizontal"
                         android:layout_marginTop="7dp"
                         android:layout_marginBottom="7dp"
@@ -71,7 +71,7 @@
                         android:textSize="10pt"
                         android:textStyle="normal"
                         android:textColor="#ffe100"
-                        android:text=" Polisi Terdekat"
+                        android:text=" Rumah Sakit"
                         android:gravity="left|center_vertical"
                         tools:ignore="HardcodedText,RtlHardcoded" />
                 </TableRow>
@@ -91,7 +91,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_polisi" />
+    <include layout="@layout/content_rs" />
 
     <!--
     <android.support.design.widget.FloatingActionButton

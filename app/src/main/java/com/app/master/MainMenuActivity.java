@@ -24,7 +24,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.sigap.AboutApp2Activity;
 import com.app.sigap.BantuanTerdekatActivity;
+import com.app.sigap.BeritaPolresActivity;
 import com.app.sigap.LoginActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
@@ -133,13 +135,13 @@ public class MainMenuActivity extends AppCompatActivity
         }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main_menu, menu);
-//        setFontNavigationOpen();
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // getMenuInflater().inflate(R.menu.main_menu, menu);
+        setFontNavigationOpen();
+        return true;
+    }
 
     /*
     @Override
@@ -166,11 +168,11 @@ public class MainMenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_police_news) {
-
+            NavPoliceNews();
         } else if (id == R.id.nav_police_about) {
             NavTentangPolres();
         } else if (id == R.id.nav_app_about) {
-
+            NavAppAbout();
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_exit) {
@@ -240,6 +242,15 @@ public class MainMenuActivity extends AppCompatActivity
         });
     }
 
+    private void NavAppAbout ()
+    {
+        /**
+         * Launch app about
+         * */
+        Intent intent = new Intent(MainMenuActivity.this, AboutApp2Activity.class);
+        startActivity(intent);
+    }
+
     private void NavExit()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -307,6 +318,20 @@ public class MainMenuActivity extends AppCompatActivity
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void NavPoliceNews ()
+    {
+        /**
+         * End of main dashboard
+         * */
+        finishAffinity();
+
+        /**
+         * Launch berita polres
+         * */
+        Intent intent = new Intent(MainMenuActivity.this, BeritaPolresActivity.class);
+        startActivity(intent);
     }
 
     private void NavTentangPolres ()

@@ -11,15 +11,17 @@ import java.lang.reflect.Field;
 
 public final class FontsOverride {
 
+    @SuppressWarnings("")
     public static void setDefaultFont (Context context)
     {
         final Typeface regular = Typeface.createFromAsset(context.getApplicationContext().getAssets(), "fonts/titillium_regular_webfont.ttf");
 
-        String staticTypefaceFieldName = "MONOSPACE";
+        String staticTypefaceFieldName = "normal";
 
         replaceFont(staticTypefaceFieldName, regular);
     }
 
+    @SuppressWarnings("")
     protected static void replaceFont (
         String staticTypefaceFieldName, final Typeface newTypeface
     ) {

@@ -6,7 +6,7 @@ package com.app.sources;
 
 public class Data {
 
-    private String id, nama, alamat;
+    private String id, nama, alamat, tahun;
 
     public Data() {
     }
@@ -41,4 +41,11 @@ public class Data {
         this.alamat = alamat;
     }
 
+    public String getTahun() {
+        return tahun;
+    }
+
+    public void setTahun(String tahun) {
+        this.tahun = tahun;
+    }
 }

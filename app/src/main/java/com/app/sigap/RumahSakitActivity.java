@@ -1,7 +1,6 @@
 package com.app.sigap;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,14 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,10 +28,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.app.adapter.Adapter;
 import com.app.config.AppController;
-import com.app.master.MainMenuActivity;
 import com.app.sources.Data;
 import com.app.sources.SQLConnection;
-import com.lib.font.FontsOverride;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,7 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
+public class RumahSakitActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     Toolbar toolbar;
     FloatingActionButton fab;
@@ -66,11 +60,11 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
 
     private static final String TAG = PolisiActivity.class.getSimpleName();
 
-    private static String url_select 	 = SQLConnection.URL_BANTUAN_TERDEKAT_POLISI + "select.php";
-    private static String url_insert 	 = SQLConnection.URL_BANTUAN_TERDEKAT_POLISI + "insert.php";
-    private static String url_edit 	     = SQLConnection.URL_BANTUAN_TERDEKAT_POLISI + "edit.php";
-    private static String url_update 	 = SQLConnection.URL_BANTUAN_TERDEKAT_POLISI + "update.php";
-    private static String url_delete 	 = SQLConnection.URL_BANTUAN_TERDEKAT_POLISI + "delete.php";
+    private static String url_select 	 = SQLConnection.URL_BANTUAN_TERDEKAT_RS + "select_rs.php";
+    private static String url_insert 	 = SQLConnection.URL_BANTUAN_TERDEKAT_RS + "insert.php";
+    private static String url_edit 	     = SQLConnection.URL_BANTUAN_TERDEKAT_RS + "edit.php";
+    private static String url_update 	 = SQLConnection.URL_BANTUAN_TERDEKAT_RS + "update.php";
+    private static String url_delete 	 = SQLConnection.URL_BANTUAN_TERDEKAT_RS + "delete.php";
 
     public static final String TAG_ID       = "id";
     public static final String TAG_NAMA     = "nama";
@@ -91,7 +85,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
 
-        setContentView(R.layout.activity_polisi);
+        setContentView(R.layout.activity_rumah_sakit);
 
         /*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -106,7 +100,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
         list    = (ListView) findViewById(R.id.list);
 
         // untuk mengisi data dari JSON ke dalam adapter
-        adapter = new Adapter(PolisiActivity.this, itemList);
+        adapter = new Adapter(RumahSakitActivity.this, itemList);
         list.setAdapter(adapter);
 
         // menamilkan widget refresh
@@ -195,7 +189,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
          * Launch bantuan terdekat dashboard
          * */
         Intent intent = new Intent(
-            PolisiActivity.this, BantuanTerdekatActivity.class
+            RumahSakitActivity.this, BantuanTerdekatActivity.class
         );
         startActivity(intent);
     }
@@ -216,7 +210,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
 
     // untuk menampilkan dialog from kontak
     private void DialogForm(String idx, String namax, String alamatx, String button) {
-        dialog = new AlertDialog.Builder(PolisiActivity.this);
+        dialog = new AlertDialog.Builder(RumahSakitActivity.this);
         inflater = getLayoutInflater();
         dialogView = inflater.inflate(R.layout.form_polisi, null);
         dialog.setView(dialogView);
@@ -335,11 +329,11 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
                         callVolley();
                         kosong();
 
-                        Toast.makeText(PolisiActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                        Toast.makeText(RumahSakitActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
                         adapter.notifyDataSetChanged();
 
                     } else {
-                        Toast.makeText(PolisiActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                        Toast.makeText(RumahSakitActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     // JSON error
@@ -352,7 +346,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error: " + error.getMessage());
-                Toast.makeText(PolisiActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(RumahSakitActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }) {
 
@@ -402,7 +396,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
                         adapter.notifyDataSetChanged();
 
                     } else {
-                        Toast.makeText(PolisiActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                        Toast.makeText(RumahSakitActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     // JSON error
@@ -415,7 +409,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error: " + error.getMessage());
-                Toast.makeText(PolisiActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(RumahSakitActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }) {
 
@@ -451,12 +445,12 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
 
                         callVolley();
 
-                        Toast.makeText(PolisiActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                        Toast.makeText(RumahSakitActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
 
                         adapter.notifyDataSetChanged();
 
                     } else {
-                        Toast.makeText(PolisiActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                        Toast.makeText(RumahSakitActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     // JSON error
@@ -469,7 +463,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error: " + error.getMessage());
-                Toast.makeText(PolisiActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(RumahSakitActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }) {
 
@@ -501,7 +495,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
                 /**
                  * Launch dashboard bantuan terdekat
                  * */
-                Intent intent = new Intent(PolisiActivity.this, BantuanTerdekatActivity.class);
+                Intent intent = new Intent(RumahSakitActivity.this, BantuanTerdekatActivity.class);
                 startActivity(intent);
             }
         });
@@ -516,8 +510,8 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
          * Set typeface
          * */
         Typeface typeface = Typeface.createFromAsset(
-            getApplicationContext().getAssets(),
-            "fonts/titillium_regular_webfont.ttf"
+                getApplicationContext().getAssets(),
+                "fonts/titillium_regular_webfont.ttf"
         );
 
         /**
