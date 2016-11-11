@@ -28,9 +28,11 @@ import com.app.sigap.BantuanTerdekatActivity;
 import com.app.sigap.LoginActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
+import com.app.sources.ChatIDE;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 import com.lib.font.CustomTypefaceSpan;
+import com.sendbird.android.SendBird;
 
 import java.util.ArrayList;
 
@@ -133,14 +135,6 @@ public class MainMenuActivity extends AppCompatActivity
         }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main_menu, menu);
-//        setFontNavigationOpen();
-//        return true;
-//    }
-
     /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -192,8 +186,11 @@ public class MainMenuActivity extends AppCompatActivity
                  * Start live chat activity
                  * */
                 //Intent intent = new Intent(MainMenuActivity.this, com.activities.LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+
+                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
+
                 startActivity(intent);
             }
         });
@@ -206,8 +203,11 @@ public class MainMenuActivity extends AppCompatActivity
                  * Start live chat activity
                  * */
                 //Intent intent = new Intent(MainMenuActivity.this, com.activities.LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+
+                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
+
                 startActivity(intent);
             }
         });
