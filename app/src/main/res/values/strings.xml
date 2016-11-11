@@ -19,6 +19,10 @@
     <string name="title_activity_polisi">Polisi</string>
     <string name="title_activity_rs">Rumah Sakit</string>
     <string name="title_activity_damkar">Pemadam Kebakaran</string>
+    <string name="title_activity_pelayanan_polres">Pelayanan Polres</string>
+    <string name="title_activity_pelayanan_polres_sim">SIM</string>
+    <string name="title_activity_pelayanan_polres_skck">SKCK</string>
+    <string name="title_activity_pelayanan_polres_sp2hp">SP2HP</string>
     <string name="title_activity_spbu">Pom Bensin</string>
     <string name="title_activity_signup">Sign up</string>
     <string name="title_activity_signup_verification">Sign up Verification</string>
@@ -103,4 +107,57 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_live_chat">LiveChatActivity</string>
+
+    <!-- Yudi -->
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_contact__list">Contact_List</string>
+    <string name="title_activity_message__from">Message_From</string>
+    <string name="title_activity_new__contact">New_Contact</string>
+    <!-- string name="admob_banner">ca-app-pub-2691806550199991/2962913463</string>
+    <string name="admob_intersitials">ca-app-pub-2691806550199991/4439646663</string -->
+
+    <!-- Strings related to login -->
+    <string name="identity_number">Identity Number (Passport/License Driver)</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="register">Register</string>
+
+    <string name="ok">OK</string>
+    <string name="no_results_found">No Results Found.</string>
+    <string name="text_header">Tekan tombol 3x apabila Anda dalam keadaan darurat</string>
+    <string name="delete_image">Delete Image</string>
+    <string name="delete_image_details">Are you sure you want to delete image?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="btnSend">SEND</string>
+    <string name="hint_pin">Pin Code</string>
+    <string name="verify">Verify</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="about_us">About Us</string>
+    <string name="city_news">City News</string>
+    <string name="police_news">Police News</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="live_chat">Live Chat</string>
+    <string name="menu_profile">Profile</string>
+    <string name="action_error">Action Error</string>
+    <string name="no_phone_no">No provide any phone number.</string>
+    <string name="cannot_proceed">Cannot proceed because details isnt provided.</string>
+    <string name="call_request_not_granted">Call request not granted</string>
+    <string name="latitude_longitude">%1$.8f, %2$.8f</string>
+     <string name="dialog_content_gps">
+        GPS is disabled in your device. Would you like to enable it?
+    </string>
+
+    <string-array name="related_arrays">
+        <item>Kritik dan Saran</item>
+        <item>Laporan Kejahatan</item>
+        <item>Laporan Narkoba</item>
+    </string-array>
+    <string name="title_activity_location_map">LocationMapActivity</string>
+    <!-- End of Yudi -->
 </resources>

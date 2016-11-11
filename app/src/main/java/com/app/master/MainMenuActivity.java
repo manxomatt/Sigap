@@ -27,14 +27,15 @@ import android.widget.TextView;
 import com.app.sigap.AboutApp2Activity;
 import com.app.sigap.BantuanTerdekatActivity;
 import com.app.sigap.BeritaPolresActivity;
+import com.app.sigap.LiveChatActivity;
 import com.app.sigap.LoginActivity;
+import com.app.sigap.PelayananPolresActivity;
+import com.app.sigap.QiscusChatActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 import com.lib.font.CustomTypefaceSpan;
-
-import java.util.ArrayList;
 
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -120,6 +121,8 @@ public class MainMenuActivity extends AppCompatActivity
         ClickLiveChat();
 
         ClickBantuanTerdekat();
+
+        ClickPelayananPolres();
         /**
          * End of Dashboard listener
          * */
@@ -193,9 +196,11 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                //Intent intent = new Intent(MainMenuActivity.this, com.activities.LiveChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
                 //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -207,9 +212,10 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                //Intent intent = new Intent(MainMenuActivity.this, com.activities.LiveChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
                 //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -237,6 +243,33 @@ public class MainMenuActivity extends AppCompatActivity
                  * Start bantuan terdekat
                  * */
                 Intent intent = new Intent(MainMenuActivity.this, BantuanTerdekatActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void ClickPelayananPolres ()
+    {
+        label_button_police_img = (ImageView) findViewById(R.id.label_button_police_img);
+        label_button_police_text = (TextView) findViewById(R.id.label_button_police_text);
+
+        label_button_police_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start pelayanan polres
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, PelayananPolresActivity.class);
+                startActivity(intent);
+            }
+        });
+        label_button_police_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start pelayanan polres
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, PelayananPolresActivity.class);
                 startActivity(intent);
             }
         });

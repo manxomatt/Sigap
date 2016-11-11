@@ -56,6 +56,12 @@ public class SQLConnection {
     public static final String URL_BERITA_POLRES = "http://tribratanewskalteng.com/index.php/editions-a-pricing/polres-barut";
 
     /**
+     * URL Pelayanan Polres
+     * */
+    public static final String URL_PELAYANAN_POLRES_SKCK = "http://e-skck.info/e_skck/request/token/gAyd443";
+    public static final String URL_PELAYANAN_POLRES_SP2HP = "http://e-sp2hp.info/e_sp2hp/";
+
+    /**
      * URL select data kapolres
      * */
     public static final String URL_POLRES_SELECT_KAPOLRES = "http://110.50.84.171/sigap_android/kuncoro_crud/select_kapolres.php";

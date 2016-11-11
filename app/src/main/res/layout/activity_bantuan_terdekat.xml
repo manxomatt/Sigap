@@ -6,13 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_dashboard_red"
+    android:fitsSystemWindows="true"
     tools:context="com.app.sigap.BantuanTerdekatActivity">
 
     <RelativeLayout
         android:id="@+id/top_bar_container"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#000000"
+        android:background="@drawable/background_02"
+        android:fitsSystemWindows="true"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,176 +92,160 @@
         <!-- Polisi -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
+            android:gravity="center_horizontal"
             android:layout_weight="0.00" >
-
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/img_bantuan_terdekat_polisi"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="0dp"
-                android:gravity="center|center_horizontal"
+                android:gravity="center|center_vertical"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_img_bantuan_terdekat_polisi"
                 android:layout_weight="0.00"
-                tools:ignore="ContentDescription,ObsoleteLayoutParam" />
-
+                tools:ignore="ContentDescription" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.00" >
             <TextView
-                android:text="Polisi"
+                android:id="@+id/label_text_bantuan_terdekat_polisi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:textColor="#ffe100"
                 android:textSize="12pt"
                 android:textStyle="normal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginEnd="35dp"
-                android:id="@+id/label_text_bantuan_terdekat_polisi"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="left|center_vertical"
-                android:textIsSelectable="true"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-
+                android:text="POLISI"
+                android:gravity="center|center_vertical"
+                tools:ignore="HardcodedText,RtlHardcoded" />
         </TableRow>
         <!-- End of polisi -->
 
-        <!-- Rumah sakit -->
+        <!-- Separator -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_weight="0.00" >
+            android:layout_height="25dp"
+            android:layout_weight="0.00"
+            tools:ignore="UselessLeaf" />
+        <!-- End of separator -->
 
+        <!-- Rumah sakit , label_img_bantuan_terdekat_rumah_sakit , label_text_bantuan_terdekat_rumah_sakit -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.00" >
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/img_bantuan_terdekat_rumah_sakit"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="0dp"
-                android:gravity="bottom|center_horizontal"
+                android:gravity="center|center_vertical"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_img_bantuan_terdekat_rumah_sakit"
                 android:layout_weight="0.00"
-                tools:ignore="ContentDescription,ObsoleteLayoutParam" />
-
+                tools:ignore="ContentDescription" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.00" >
             <TextView
-                android:text="Rumah Sakit"
+                android:id="@+id/label_text_bantuan_terdekat_rumah_sakit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:textColor="#ffe100"
                 android:textSize="12pt"
                 android:textStyle="normal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginEnd="35dp"
-                android:id="@+id/label_text_bantuan_terdekat_rumah_sakit"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="left|center_vertical"
-                android:textIsSelectable="true"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-
+                android:text="Rumah Sakit"
+                android:gravity="center|center_vertical"
+                tools:ignore="HardcodedText,RtlHardcoded" />
         </TableRow>
         <!-- End of rumah sakit -->
 
-        <!-- Pemadam kebakaran -->
+        <!-- Separator -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_weight="0.00" >
+            android:layout_height="25dp"
+            android:layout_weight="0.00"
+            tools:ignore="UselessLeaf" />
+        <!-- End of separator -->
 
+        <!-- Pemadam kebakaran , label_img_bantuan_terdekat_pemadam_kebakaran , label_text_bantuan_terdekat_pemadam_kebakaran -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.00" >
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/img_bantuan_terdekat_pemadam_kebakaran"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="0dp"
-                android:gravity="bottom|center_horizontal"
+                android:gravity="center|center_vertical"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_img_bantuan_terdekat_pemadam_kebakaran"
                 android:layout_weight="0.00"
-                tools:ignore="ContentDescription,ObsoleteLayoutParam" />
-
+                tools:ignore="ContentDescription" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.00" >
             <TextView
-                android:text="Pemadam Kebakaran"
+                android:id="@+id/label_text_bantuan_terdekat_pemadam_kebakaran"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:textColor="#ffe100"
                 android:textSize="12pt"
                 android:textStyle="normal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginEnd="35dp"
-                android:id="@+id/label_text_bantuan_terdekat_pemadam_kebakaran"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="left|center_vertical"
-                android:textIsSelectable="true"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-
+                android:text="Pemadam Kebakaran"
+                android:gravity="center|center_vertical"
+                tools:ignore="HardcodedText,RtlHardcoded" />
         </TableRow>
         <!-- End of pemadam kebakaran -->
 
-        <!-- SPBU -->
+        <!-- Separator -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_weight="0.00" >
+            android:layout_height="25dp"
+            android:layout_weight="0.00"
+            tools:ignore="UselessLeaf" />
+        <!-- End of separator -->
 
+        <!-- SPBU , label_img_bantuan_terdekat_spbu , label_text_bantuan_terdekat_spbu -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.00" >
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 app:srcCompat="@drawable/img_bantuan_terdekat_spbu"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="0dp"
-                android:gravity="bottom|center_horizontal"
+                android:gravity="center|center_vertical"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_img_bantuan_terdekat_spbu"
                 android:layout_weight="0.00"
-                tools:ignore="ContentDescription,ObsoleteLayoutParam" />
-
+                tools:ignore="ContentDescription" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.00" >
             <TextView
-                android:text="Pom Bensin"
+                android:id="@+id/label_text_bantuan_terdekat_spbu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:textColor="#ffe100"
                 android:textSize="12pt"
                 android:textStyle="normal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginEnd="35dp"
-                android:id="@+id/label_text_bantuan_terdekat_spbu"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:gravity="left|center_vertical"
-                android:textIsSelectable="true"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
-
+                android:text="Pom Bensin"
+                android:gravity="center|center_vertical"
+                tools:ignore="HardcodedText,RtlHardcoded" />
         </TableRow>
         <!-- End of spbu -->
 

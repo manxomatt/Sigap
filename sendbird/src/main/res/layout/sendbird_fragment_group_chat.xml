@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/sendbird_img_dashboard_red"
+    android:fitsSystemWindows="true"
     >
 
     <RelativeLayout
         android:id="@+id/top_bar_container"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#ffe100"
+        android:background="@drawable/sendbird_background_02"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +59,7 @@
                         android:layout_height="match_parent"
                         android:textSize="10pt"
                         android:textStyle="normal"
-                        android:textColor="#000000"
+                        android:textColor="#ffe100"
                         android:text=" Live Chat"
                         android:gravity="right|center_vertical"
                         tools:ignore="HardcodedText,RtlHardcoded" />
@@ -78,25 +79,31 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:ignore="InefficientWeight">
-        <ListView
-            android:id="@+id/list"
+        android:id="@+id/llChatForm"
+        android:orientation="vertical">
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="8dp"
-            android:transcriptMode="normal"
-            >
-        </ListView>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@drawable/sendbird_img_shadow"
-            />
-    </FrameLayout>
+            android:layout_weight="1"
+            tools:ignore="InefficientWeight">
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="8dp"
+                android:transcriptMode="normal"
+                >
+            </ListView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/sendbird_img_shadow"
+                />
+        </FrameLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -123,8 +130,8 @@
             >
 
             <LinearLayout
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
                 >
                 <ProgressBar
@@ -156,7 +163,7 @@
                 android:textColorHint="#bbc3c9"
                 android:hint="Ketik pesan . . ."
                 android:textColor="#37434f"
-                android:textSize="16sp"
+                android:textSize="5.75pt"
                 android:text=""
                 android:background="#00000000"
                 tools:ignore="Deprecated,HardcodedText" />
@@ -167,7 +174,7 @@
                 android:layout_height="match_parent"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:textColor="#ffffff"
+                android:textColor="#ff444444"
                 android:text="Kirim"
                 android:background="@drawable/sendbird_btn_send"
                 tools:ignore="HardcodedText" />

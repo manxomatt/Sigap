@@ -22,10 +22,19 @@ public class BeritaPolresActivity extends AppCompatActivity implements SwipeRefr
      * Variables
      * */
     private static int splash_interval = 5000;
+    /**
+     * End of Variables
+     * */
 
+    /**
+     * UI reference
+     * */
     SwipeRefreshLayout swipe;
 
     private WebView webview_berita_polres;
+    /**
+     * End of UI reference
+     * */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +43,8 @@ public class BeritaPolresActivity extends AppCompatActivity implements SwipeRefr
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         getWindow().setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
         );
 
         setContentView(R.layout.activity_berita_polres);
@@ -106,6 +115,7 @@ public class BeritaPolresActivity extends AppCompatActivity implements SwipeRefr
         web_setting = webview_berita_polres.getSettings();
         web_setting.setBuiltInZoomControls(false);
         web_setting.setJavaScriptEnabled(true);
+        web_setting.setSupportZoom(true);
 
         webview_berita_polres.setWebViewClient(new WebViewClient(){
             @Override

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.sigap">
 
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="24" />
+
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,11 +15,40 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- Yudi access -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <permission
+        android:name="com.panicbutton.panicbutton.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.akhbra.panicbutton.permission.C2D_MESSAGE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+
+    <!-- android:name="com.app.config.AppController" -->
     <application
         android:name="com.app.config.AppController"
         android:allowBackup="true"
         android:icon="@drawable/logo_new"
         android:label="@string/app_name"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <!-- Splash Screen -->
@@ -54,7 +87,7 @@
             android:label="@string/title_activity_main_menu"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/MainMenu" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Signup Activity -->
         <activity
@@ -92,7 +125,7 @@
         <activity
             android:name=".BeritaPolresActivity"
             android:label="@string/title_activity_berita_polres"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
@@ -159,6 +192,42 @@
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/DataPolres" />
+
+        <!-- Pelayanan Polres Activity -->
+        <activity
+            android:name=".PelayananPolresActivity"
+            android:label="@string/title_activity_pelayanan_polres"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/BantuanTerdekat" />
+
+        <!-- Qiscus Chat -->
+        <activity
+            android:name=".QiscusChatActivity"
+            android:label="@string/title_activity_live_chat_sigap"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashScreen" />
+
+        <!-- Yudi Chat -->
+
+        <!-- Pelayanan Polres : SKCK -->
+        <activity
+            android:name=".SKCKActivity"
+            android:label="@string/title_activity_pelayanan_polres_skck"
+            android:noHistory="false"
+            android:screenOrientation="landscape"
+            android:supportsRtl="true"
+            android:theme="@style/SplashScreen" />
+
+        <!-- Pelayanan Polres : SP2HP -->
+        <activity
+            android:name=".SP2HPActivity"
+            android:label="@string/title_activity_pelayanan_polres_sp2hp"
+            android:noHistory="false"
+            android:screenOrientation="landscape"
+            android:supportsRtl="true"
+            android:theme="@style/SplashScreen" />
 
     </application>
 

@@ -541,7 +541,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="022 - 8724 1058\n022 - 8724 1057"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText,TooManyViews" />
             </TableRow>
 
             <!-- Separator -->
