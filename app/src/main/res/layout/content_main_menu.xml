@@ -28,6 +28,7 @@
             android:gravity="bottom|center_horizontal"
             android:id="@+id/label_button_panic_img"
             android:layout_weight="0.00"
+            android:fitsSystemWindows="true"
             tools:ignore="ContentDescription,InefficientWeight,ObsoleteLayoutParam" />
 
         <TextView

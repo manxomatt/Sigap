@@ -28,6 +28,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main_menu"
         app:menu="@menu/activity_main_menu_drawer"
-        app:itemTextAppearance="@style/NavigationDrawerStyle"/>
+        app:itemTextAppearance="@style/SplashScreen"/>
 
 </android.support.v4.widget.DrawerLayout>

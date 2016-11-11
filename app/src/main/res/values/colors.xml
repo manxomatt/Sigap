@@ -11,4 +11,28 @@
     <color name="list_row_end_color">#ffffff</color>
     <color name="list_row_hover_start_color">#ebeef0</color>
     <color name="list_row_hover_end_color">#ebeef0</color>
+
+    <color name="text_white_cloor">#ffffff</color>
+    <color name="no_result_text_color">#929292</color>
+    <color name="theme_main_color_alpha_66">#d641abe0</color>
+    <color name="btn_register">#009688</color>
+    <color name="theme_black_color">#303030</color>
+    <color name="overlay_color">#a7ffffff</color>
+    <color name="view_bg_color">#f7f7f7</color>
+    <color name="theme_main_color">#f7f7f0</color>
+    <color name="bg_gray_color">#f0f0f0</color>
+    <color name="bg_main_button">#666666</color>
+    <color name="colorPrimaryLight">#658AF9</color>
+    <color name="colorAccentDark">#616161</color>
+    <color name="colorAccentLight">#F06292</color>
+    <color name="grey_hard">#96989A</color>
+    <color name="grey_medium">#BDBFC1</color>
+    <color name="grey_soft">#f5f5f5</color>
+    <color name="grey_bg">#e6e6e6</color>
+    <color name="tab_indicator_color">#FFFFFF</color>
+    <color name="me_chat_bg">#FFE0B2</color>
+    <color name="bg_main_page">#000000</color>
+    <color name="bg_panic_button">#b00e0e</color>
+    <color name="marker_primary">#1F59A6</color>
+    <color name="marker_secondary">#EE792A</color>
 </resources>

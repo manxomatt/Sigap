@@ -24,8 +24,13 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.sigap.AboutApp2Activity;
 import com.app.sigap.BantuanTerdekatActivity;
+import com.app.sigap.BeritaPolresActivity;
+import com.app.sigap.LiveChatActivity;
 import com.app.sigap.LoginActivity;
+import com.app.sigap.PelayananPolresActivity;
+import com.app.sigap.QiscusChatActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
 import com.app.sources.ChatIDE;
@@ -33,8 +38,6 @@ import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 import com.lib.font.CustomTypefaceSpan;
 import com.sendbird.android.SendBird;
-
-import java.util.ArrayList;
 
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -120,6 +123,8 @@ public class MainMenuActivity extends AppCompatActivity
         ClickLiveChat();
 
         ClickBantuanTerdekat();
+
+        ClickPelayananPolres();
         /**
          * End of Dashboard listener
          * */
@@ -133,6 +138,14 @@ public class MainMenuActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // getMenuInflater().inflate(R.menu.main_menu, menu);
+        setFontNavigationOpen();
+        return true;
     }
 
     /*
@@ -160,11 +173,11 @@ public class MainMenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_police_news) {
-
+            NavPoliceNews();
         } else if (id == R.id.nav_police_about) {
             NavTentangPolres();
         } else if (id == R.id.nav_app_about) {
-
+            NavAppAbout();
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_exit) {
@@ -185,11 +198,7 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                //Intent intent = new Intent(MainMenuActivity.this, com.activities.LiveChatActivity.class);
-                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-
-                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
+                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
 
                 startActivity(intent);
             }
@@ -202,11 +211,7 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                //Intent intent = new Intent(MainMenuActivity.this, com.activities.LiveChatActivity.class);
-                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-
-                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
+                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
 
                 startActivity(intent);
             }
@@ -238,6 +243,42 @@ public class MainMenuActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+    }
+
+    private void ClickPelayananPolres ()
+    {
+        label_button_police_img = (ImageView) findViewById(R.id.label_button_police_img);
+        label_button_police_text = (TextView) findViewById(R.id.label_button_police_text);
+
+        label_button_police_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start pelayanan polres
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, PelayananPolresActivity.class);
+                startActivity(intent);
+            }
+        });
+        label_button_police_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start pelayanan polres
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, PelayananPolresActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void NavAppAbout ()
+    {
+        /**
+         * Launch app about
+         * */
+        Intent intent = new Intent(MainMenuActivity.this, AboutApp2Activity.class);
+        startActivity(intent);
     }
 
     private void NavExit()
@@ -307,6 +348,20 @@ public class MainMenuActivity extends AppCompatActivity
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void NavPoliceNews ()
+    {
+        /**
+         * End of main dashboard
+         * */
+        finishAffinity();
+
+        /**
+         * Launch berita polres
+         * */
+        Intent intent = new Intent(MainMenuActivity.this, BeritaPolresActivity.class);
+        startActivity(intent);
     }
 
     private void NavTentangPolres ()
@@ -379,7 +434,7 @@ public class MainMenuActivity extends AppCompatActivity
         for (int i=0;i<m.size();i++) {
             MenuItem mi = m.getItem(i);
 
-            //for aapplying a font to subMenu ...
+            //for applying a font to subMenu ...
             SubMenu subMenu = mi.getSubMenu();
             if (subMenu!=null && subMenu.size() >0 ) {
                 for (int j=0; j < subMenu.size();j++) {

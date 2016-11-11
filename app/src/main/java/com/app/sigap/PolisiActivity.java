@@ -1,7 +1,10 @@
 package com.app.sigap;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,8 +32,10 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.app.adapter.Adapter;
 import com.app.config.AppController;
+import com.app.master.MainMenuActivity;
 import com.app.sources.Data;
 import com.app.sources.SQLConnection;
+import com.lib.font.FontsOverride;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,6 +60,9 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
     View dialogView;
     EditText txt_id, txt_nama, txt_keterangan;
     String id, nama, alamat;
+
+    private ImageButton btn_close;
+    private TextView txt_channel_name;
 
     private static final String TAG = PolisiActivity.class.getSimpleName();
 
@@ -81,11 +93,15 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
 
         setContentView(R.layout.activity_polisi);
 
+        /*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        */
 
         // menghubungkan variablel pada layout dan pada java
+        /*
         fab     = (FloatingActionButton) findViewById(R.id.fab_add);
+        */
         swipe   = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         list    = (ListView) findViewById(R.id.list);
 
@@ -108,14 +124,17 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
         );
 
         // fungsi floating action button memanggil form kontak
+        /*
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogForm("", "", "", "SIMPAN");
             }
         });
+        */
 
         // listview ditekan lama akan menampilkan dua pilihan edit atau delete data
+        /*
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
@@ -145,7 +164,40 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
                 return false;
             }
         });
+        */
 
+        /**
+         * Config
+         * */
+        setFonts();
+        /**
+         * End of Config
+         * */
+
+        /**
+         * Listener
+         * */
+        Exit();
+        /**
+         * End of Listener
+         * */
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        /**
+         * End of data polisi terdekat
+         * */
+        finishAffinity();
+
+        /**
+         * Launch bantuan terdekat dashboard
+         * */
+        Intent intent = new Intent(
+            PolisiActivity.this, BantuanTerdekatActivity.class
+        );
+        startActivity(intent);
     }
 
     @Override
@@ -433,6 +485,45 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
         };
 
         AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+    }
+
+    private void Exit ()
+    {
+        btn_close = (ImageButton) findViewById(R.id.btn_close);
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of Polisi activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch dashboard bantuan terdekat
+                 * */
+                Intent intent = new Intent(PolisiActivity.this, BantuanTerdekatActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @SuppressWarnings("")
+    private void setFonts ()
+    {
+        txt_channel_name = (TextView) findViewById(R.id.txt_channel_name);
+
+        /**
+         * Set typeface
+         * */
+        Typeface typeface = Typeface.createFromAsset(
+            getApplicationContext().getAssets(),
+            "fonts/titillium_regular_webfont.ttf"
+        );
+
+        /**
+         * Set custom fonts
+         * */
+        txt_channel_name.setTypeface(typeface);
     }
 
 }

@@ -61,9 +61,69 @@ public class BantuanTerdekatActivity extends AppCompatActivity {
         Exit();
 
         ClickPolisi();
+
+        ClickRumahSakit();
+
+        ClickPemadamKebakaran();
+
+        ClickSPBU();
         /**
          * End of Listener
          * */
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        /**
+         * End of bantuan terdekat activity
+         * */
+        finishAffinity();
+
+        /**
+         * Launch main dashboard
+         * */
+        Intent intent = new Intent(
+            BantuanTerdekatActivity.this, MainMenuActivity.class
+        );
+        startActivity(intent);
+    }
+
+    private void ClickPemadamKebakaran ()
+    {
+        label_img_bantuan_terdekat_pemadam_kebakaran = (ImageView) findViewById(R.id.label_img_bantuan_terdekat_pemadam_kebakaran);
+        label_text_bantuan_terdekat_pemadam_kebakaran = (TextView) findViewById(R.id.label_text_bantuan_terdekat_pemadam_kebakaran);
+
+        label_img_bantuan_terdekat_pemadam_kebakaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of bantuan terdekat
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch data pemadam kebakaran
+                 * */
+                Intent intent = new Intent(BantuanTerdekatActivity.this, DamkarActivity.class);
+                startActivity(intent);
+            }
+        });
+        label_text_bantuan_terdekat_pemadam_kebakaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of bantuan terdekat
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch data pemadam kebakaran
+                 * */
+                Intent intent = new Intent(BantuanTerdekatActivity.this, DamkarActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void ClickPolisi ()
@@ -104,6 +164,84 @@ public class BantuanTerdekatActivity extends AppCompatActivity {
                     BantuanTerdekatActivity.this,
                     PolisiActivity.class
                 );
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void ClickRumahSakit ()
+    {
+        label_img_bantuan_terdekat_rumah_sakit = (ImageView) findViewById(R.id.label_img_bantuan_terdekat_rumah_sakit);
+        label_text_bantuan_terdekat_rumah_sakit = (TextView) findViewById(R.id.label_text_bantuan_terdekat_rumah_sakit);
+
+        label_img_bantuan_terdekat_rumah_sakit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of bantuan terdekat activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch data rumah sakit
+                 * */
+                Intent intent = new Intent(
+                    BantuanTerdekatActivity.this, RumahSakitActivity.class
+                );
+                startActivity(intent);
+            }
+        });
+        label_text_bantuan_terdekat_rumah_sakit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of bantuan terdekat activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch data rumah sakit
+                 * */
+                Intent intent = new Intent(
+                    BantuanTerdekatActivity.this, RumahSakitActivity.class
+                );
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void ClickSPBU ()
+    {
+        label_img_bantuan_terdekat_spbu = (ImageView) findViewById(R.id.label_img_bantuan_terdekat_spbu);
+        label_text_bantuan_terdekat_spbu = (TextView) findViewById(R.id.label_text_bantuan_terdekat_spbu);
+
+        label_img_bantuan_terdekat_spbu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of bantuan terdekat
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch data spbu terdekat
+                 * */
+                Intent intent = new Intent(BantuanTerdekatActivity.this, SPBUActivity.class);
+                startActivity(intent);
+            }
+        });
+        label_text_bantuan_terdekat_spbu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of bantuan terdekat
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch data spbu terdekat
+                 * */
+                Intent intent = new Intent(BantuanTerdekatActivity.this, SPBUActivity.class);
                 startActivity(intent);
             }
         });
