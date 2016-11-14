@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         //applicationId "com.sendbird.android.sample"
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 24
         versionCode getVersionCode()
         versionName getVersionName()
@@ -47,6 +47,7 @@ dependencies {
     compile 'com.android.support:support-v4:24.0.0'
     compile 'com.google.firebase:firebase-messaging:9.6.1'
     compile files('libs/sendbird-android-sdk-3.0.5.jar')
+    compile 'com.android.support:appcompat-v7:24.0.0'
 }
 
 /*compile 'com.squareup.okio:okio:1.11.0'*/

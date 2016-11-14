@@ -33,9 +33,11 @@ import com.app.sigap.PelayananPolresActivity;
 import com.app.sigap.QiscusChatActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
+import com.app.sources.ChatIDE;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 import com.lib.font.CustomTypefaceSpan;
+import com.sendbird.android.SendBird;
 
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -197,10 +199,7 @@ public class MainMenuActivity extends AppCompatActivity
                  * Start live chat activity
                  * */
                 Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -213,9 +212,7 @@ public class MainMenuActivity extends AppCompatActivity
                  * Start live chat activity
                  * */
                 Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -437,7 +434,7 @@ public class MainMenuActivity extends AppCompatActivity
         for (int i=0;i<m.size();i++) {
             MenuItem mi = m.getItem(i);
 
-            //for aapplying a font to subMenu ...
+            //for applying a font to subMenu ...
             SubMenu subMenu = mi.getSubMenu();
             if (subMenu!=null && subMenu.size() >0 ) {
                 for (int j=0; j < subMenu.size();j++) {
