@@ -716,7 +716,6 @@ public class LiveChatActivity extends AppCompatActivity {
                         viewHolder.getView("left_container").setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                // TODO: BUG: Unable to add window -- token null is not for an application
                                 new AlertDialog.Builder(mContext)
                                         .setTitle("SendBird")
                                         .setMessage("Do you want to download this file?")
