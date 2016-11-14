@@ -40,15 +40,15 @@ public class SQLConnection {
     /**
      * URL Bantuan Terdekat (Polisi)
      * */
-    public static final String URL_BANTUAN_TERDEKAT_POLISI = "http://110.50.84.171/sigap_android/kuncoro_crud/";
-    public static final String URL_BANTUAN_TERDEKAT_POLISI_SELECT = URL_HOST + "/sigap_android/show_help_police.php";
-    public static final String URL_BANTUAN_TERDEKAT_POLISI_INSERT = URL_HOST + "/sigap_android/insert_help_police.php";
-    public static final String URL_BANTUAN_TERDEKAT_POLISI_EDIT = URL_HOST + "/sigap_android/edit_help_police.php";
-    public static final String URL_BANTUAN_TERDEKAT_POLISI_UPDATE = URL_HOST + "/sigap_android/update_help_police.php";
-    public static final String URL_BANTUAN_TERDEKAT_POLISI_DELETE = URL_HOST + "/sigap_android/delete_help_police.php";
-    public static final String URL_BANTUAN_TERDEKAT_RS = "http://110.50.84.171/sigap_android/kuncoro_crud/";
-    public static final String URL_BANTUAN_TERDEKAT_DAMKAR = "http://110.50.84.171/sigap_android/kuncoro_crud/";
-    public static final String URL_BANTUAN_TERDEKAT_SPBU = "http://110.50.84.171/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_SELECT = URL_HOST + "/sigap/sigap_android/show_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_INSERT = URL_HOST + "/sigap/sigap_android/insert_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_EDIT = URL_HOST + "/sigap/sigap_android/edit_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_UPDATE = URL_HOST + "/sigap/sigap_android/update_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI_DELETE = URL_HOST + "/sigap/sigap_android/delete_help_police.php";
+    public static final String URL_BANTUAN_TERDEKAT_RS = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_DAMKAR = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_SPBU = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
 
     /**
      * URL Berita Polres
@@ -64,33 +64,62 @@ public class SQLConnection {
     /**
      * URL select data kapolres
      * */
-    public static final String URL_POLRES_SELECT_KAPOLRES = "http://110.50.84.171/sigap_android/kuncoro_crud/select_kapolres.php";
+    public static final String URL_POLRES_SELECT_KAPOLRES = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/select_kapolres.php";
+
+    /**
+     * URL Registrasi SIM
+     * */
+    public static final String URL_REG_SIM = URL_HOST + "/sigap/sigap_android/insert_sim.php";
+    public static final String REG_SIM_SUCCESS = "success";
+    public static final String KEY_SIM_NOMORKTP = "nomorktp";
+    public static final String KEY_SIM_JENISPERMOHONAN = "jenispermohonan";
+    public static final String KEY_SIM_GOLONGANSIM = "golongansim";
+    public static final String KEY_SIM_NAMADEPAN = "namadepan";
+    public static final String KEY_SIM_NAMABELAKANG = "namabelakang";
+    public static final String KEY_SIM_JENISKELAMIN = "jeniskelamin";
+    public static final String KEY_SIM_KEWARGANEGARAAN = "kewarganegaraan";
+    public static final String KEY_SIM_TINGGIBADAN = "tinggibadan";
+    public static final String KEY_SIM_TEMPATLAHIR = "tempatlahir";
+    public static final String KEY_SIM_TANGGALLAHIR = "tanggallahir";
+    public static final String KEY_SIM_PEKERJAAN = "pekerjaan";
+    public static final String KEY_SIM_ALAMATLENGKAP = "alamatlengkap";
+    public static final String KEY_SIM_RTRW = "rtrw";
+    public static final String KEY_SIM_KOTA = "kota";
+    public static final String KEY_SIM_KODEPOS = "kodepos";
+    public static final String KEY_SIM_NOMORTELEPON = "nomortelepon";
+    public static final String KEY_SIM_NAMAAYAH = "namaayah";
+    public static final String KEY_SIM_NAMAIBU = "namaibu";
+    public static final String KEY_SIM_PENDIDIKAN = "pendidikan";
+    public static final String KEY_SIM_CACATFISIKLAIN = "cacatfisiklain";
 
     /**
      * URL Login
      * */
-    public static final String URL_LOGIN = URL_HOST + "/sigap_android/new_login.php";
+    public static final String URL_LOGIN = URL_HOST + "/sigap/sigap_android/new_login.php";
 
     /**
      * URL Send Mail
      * */
-    public static final String URL_MAIL_SEND_FORGET_PASSWORD = URL_HOST + "/sigap_android/send_mail.php";
+    public static final String URL_MAIL_SEND_FORGET_PASSWORD = URL_HOST + "/sigap/sigap_android/send_mail.php";
 
     /**
      * URL Signup
      * */
-    public static final String URL_SIGNUP_MEMBER = URL_HOST + "/sigap_android/signup_member.php";
+    public static final String URL_SIGNUP_MEMBER = URL_HOST + "/sigap/sigap_android/signup_member.php";
 
-    public static final String URL_SIGNUP_USER = URL_HOST + "/sigap_android/signup_user.php";
+    public static final String URL_SIGNUP_USER = URL_HOST + "/sigap/sigap_android/signup_user.php";
 
     /**
      * If login success
      * */
+    public static final String LOGIN_FAILED = "username dan password salah.";
     public static final String LOGIN_SUCCESS = "success";
 
     /**
      * If signup success
      * */
+    public static final String SIGNUP_KTP_FOUND = "nomor ktp sudah ada.";
+    public static final String SIGNUP_FAILED = "gagal registrasi user.";
     public static final String SIGNUP_SUCCESS = "success";
 
     /**

@@ -85,13 +85,31 @@ public class PelayananPolresActivity extends AppCompatActivity {
         label_img_sim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                /**
+                 * End of pelayanan polres activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch pelayanan sim
+                 * */
+                Intent intent = new Intent(PelayananPolresActivity.this, Sim1Activity.class);
+                startActivity(intent);
             }
         });
         label_text_sim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                /**
+                 * End of pelayanan polres activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch pelayanan sim
+                 * */
+                Intent intent = new Intent(PelayananPolresActivity.this, Sim1Activity.class);
+                startActivity(intent);
             }
         });
     }

@@ -196,10 +196,15 @@ public class SignupActivity extends AppCompatActivity {
                     /**
                      * Jika respon gagal
                      * */
-                    System.out.println(response);
-                    if(!response.equalsIgnoreCase(SQLConnection.SIGNUP_SUCCESS))
+                    if (response.equalsIgnoreCase(SQLConnection.SIGNUP_KTP_FOUND))
                     {
-                        text_nomor_ktp.setError("* nomor ktp sudah ada");
+                        text_nomor_ktp.setError("* " + SQLConnection.SIGNUP_KTP_FOUND);
+                        focusView = text_nomor_ktp;
+                        cancel = true;
+                    }
+                    else if(response.equalsIgnoreCase(SQLConnection.SIGNUP_FAILED))
+                    {
+                        text_nomor_ktp.setError("* " + SQLConnection.SIGNUP_FAILED);
                         focusView = text_nomor_ktp;
                         cancel = true;
                     }

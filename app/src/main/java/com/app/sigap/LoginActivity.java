@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -176,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
                          * */
                         if(!response.equalsIgnoreCase(SQLConnection.LOGIN_SUCCESS))
                         {
-                            text_username.setError("* username dan password salah");
+                            text_username.setError("* " + SQLConnection.LOGIN_FAILED);
                             focusView = text_username;
                             cancel = true;
                         }

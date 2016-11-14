@@ -51,6 +51,94 @@
     </string>
     <!-- End of Informasi Polres-->
 
+    <!-- SIM -->
+    <string name="sim_jenis_permohonan">Jenis permohonan :</string>
+    <string-array name="sim_jenis_permohonan_list">
+        <item>Pilih</item>
+        <item>1. Baru</item>
+        <item>2. Perpanjangan</item>
+        <item>3. Peningkatan golongan</item>
+        <item>4. Penurunan golongan</item>
+        <item>5. Mutasi</item>
+        <item>6. Hilang / rusak</item>
+    </string-array>
+
+    <string name="sim_golongansim">Sebutkan golongan SIM yang diminta :</string>
+    <string-array name="sim_golongansim_list">
+        <item>Pilih</item>
+        <item>1. A</item>
+        <item>2. C</item>
+        <item>3. B I</item>
+        <item>4. B II</item>
+        <item>5. A Umum</item>
+        <item>6. B I Umum</item>
+        <item>7. B II Umum</item>
+        <item>8. D</item>
+    </string-array>
+
+    <string name="sim_namadepan">Nama depan :</string>
+
+    <string name="sim_namabelakang">Nama belakang :</string>
+
+    <string name="sim_jeniskelamin">Jenis kelamin :</string>
+
+    <string name="sim_kewarganegaraan">Kewarganegaraan :</string>
+
+    <string name="sim_tinggibadan">Tinggi badan (cm) :</string>
+
+    <string name="sim_tempatlahir">Tempat lahir :</string>
+
+    <string name="sim_tanggallahir">Tanggal lahir :</string>
+
+    <string name="sim_pekerjaan">Pekerjaan :</string>
+    <string-array name="sim_pekerjaan_list">
+        <item>Pilih</item>
+        <item>1. Pelajar / mhs</item>
+        <item>2. Pegawai negeri</item>
+        <item>3. ABRI</item>
+        <item>4. Swasta</item>
+        <item>5. Pengemudi</item>
+        <item>6. Lain-lain</item>
+    </string-array>
+
+    <string name="sim_alamatlengkap">Alamat lengkap :</string>
+
+    <string name="sim_rtrw">RT/RW, Banjar, Dukuh, Desa, dll. :</string>
+
+    <string name="sim_kota">Kota :</string>
+
+    <string name="sim_kodepos">Kode Pos :</string>
+
+    <string name="sim_nomortelepon">Nomor Telepon :</string>
+
+    <string name="sim_nomorktp">Nomor KTP :</string>
+
+    <string name="sim_namaayah">Nama ayah :</string>
+
+    <string name="sim_namaibu">Nama ibu :</string>
+
+    <string name="sim_pendidikan">Pendidikan :</string>
+    <string-array name="sim_pendidikan_list">
+        <item>Pilih</item>
+        <item>1. Tidak bersekolah</item>
+        <item>2. SD / sederajat</item>
+        <item>3. SLTP / sederajat</item>
+        <item>4. SLTA / sederajat</item>
+        <item>5. PT / AKD / sederajat</item>
+        <item>6. Dan lain-lain</item>
+    </string-array>
+
+    <string name="sim_cacatfisiklain">Cacat fisik lain :</string>
+    <string-array name="sim_cacatfisiklain_list">
+        <item>Pilih</item>
+        <item>1. Tangan</item>
+        <item>2. Kaki</item>
+        <item>3. Pendengaran</item>
+        <item>4. Badan</item>
+        <item>5. Tidak ada</item>
+    </string-array>
+    <!-- End of SIM -->
+
     <!-- Application -->
     <string name="app_logout">Keluar sekarang ?</string>
     <!-- End of Application-->

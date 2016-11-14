@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ct_data_sim3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.app.sigap.Sim1Activity"
+    tools:showIn="@layout/activity_sim1"
+    android:visibility="gone">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv_2"
+        android:background="@drawable/back_white"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        android:visibility="visible">
+
+        <!-- Idx 2 -->
+        <LinearLayout
+            android:id="@+id/id_ln_tab_app_about_idx_2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:visibility="visible">
+
+            <!-- Pendidikan -->
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView
+                    android:id="@+id/label_pendidikan"
+                    android:text="@string/sim_pendidikan"
+                    android:textStyle="bold"
+                    android:textSize="7pt"
+                    android:textAlignment="textStart"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="normal"
+                    android:textSize="6.5pt"
+                    android:id="@+id/spinner_pendidikan" />
+            </TableRow>
+            <!-- End of Pendidikan -->
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_height="25dp"
+                android:layout_width="match_parent"
+                tools:ignore="UselessLeaf" />
+            <!-- End of Separator -->
+
+            <!-- Cacat fisik lain -->
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView
+                    android:id="@+id/label_cacatfisiklain"
+                    android:text="@string/sim_cacatfisiklain"
+                    android:textStyle="bold"
+                    android:textSize="7pt"
+                    android:textAlignment="textStart"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="normal"
+                    android:textSize="6.5pt"
+                    android:id="@+id/spinner_cacatfisiklain" />
+            </TableRow>
+            <!-- End of Cacat fisik lain -->
+
+            <!-- Separator -->
+            <TableRow
+                android:layout_height="25dp"
+                android:layout_width="match_parent"
+                tools:ignore="UselessLeaf" />
+            <!-- End of Separator -->
+
+            <!-- Button back and finish -->
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                tools:ignore="UselessLeaf">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:ignore="UselessParent">
+                    <Button
+                        android:background="@drawable/background_02"
+                        android:text="Kembali"
+                        android:textColor="#ffffff"
+                        android:textSize="6pt"
+                        android:textStyle="normal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/button_back_pendidikan"
+                        android:layout_weight="1"
+                        tools:ignore="ButtonStyle,HardcodedText,RtlHardcoded" />
+
+                    <Button
+                        android:background="@drawable/background_02"
+                        android:text="Selesai"
+                        android:textColor="#ffffff"
+                        android:textSize="6pt"
+                        android:textStyle="normal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/button_finish_pendidikan"
+                        android:layout_weight="1"
+                        tools:ignore="ButtonStyle,HardcodedText,RtlHardcoded" />
+                </LinearLayout>
+
+            </TableRow>
+            <!-- End of Button back and finish -->
+
+        </LinearLayout>
+        <!-- End of idx 2 -->
+
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>
