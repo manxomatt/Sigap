@@ -49,7 +49,7 @@ dependencies {
     compile 'com.android.support:design:24.0.0'
     compile 'com.android.support:gridlayout-v7:24.0.0'
     compile 'com.android.support:recyclerview-v7:24.0.0'
-    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.etsy.android.grid:library:1.0.5'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.mcxiaoke.volley:library-aar:1.0.1'
@@ -58,7 +58,7 @@ dependencies {
     compile files('libs/sendbird-android-sdk-3.0.5.jar')
     compile project(':sendbird')
 
-<<<<<<< HEAD
+
     /**
      *  Yudi
      * */
@@ -68,12 +68,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     */
-=======
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //    })
 
->>>>>>> origin/master
     //compile 'com.google.android.gms:play-services:9.6.1'
     //compile files('libs/apache-mime4j-0.6.jar')
     //compile files('libs/httpmime-4.3.4.jar')
