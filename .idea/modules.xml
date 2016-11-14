@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Sigap.iml" filepath="$PROJECT_DIR$/Sigap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sendbird/sendbird.iml" filepath="$PROJECT_DIR$/sendbird/sendbird.iml" />
     </modules>
   </component>
 </project>
