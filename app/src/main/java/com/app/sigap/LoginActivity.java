@@ -202,7 +202,7 @@ public class LoginActivity extends AppCompatActivity {
                         /**
                          * Jika Respon server gagal
                          * */
-                        if(!response.equalsIgnoreCase(SQLConnection.LOGIN_SUCCESS))
+                        if(!response.substring(0, 7).equalsIgnoreCase(SQLConnection.LOGIN_SUCCESS))
                         {
                             text_username.setError("* " + SQLConnection.LOGIN_FAILED);
                             focusView = text_username;
@@ -215,6 +215,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else
                         {
+                            String nomorktp = response.substring(8);
+
                             /**
                              * Buatkan sebuah shared preference
                              * */
@@ -234,6 +236,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putBoolean(SQLConnection.SHARED_PREFERENCE_LOGIN, true);
                             editor.putString(SQLConnection.SHARED_PREFERENCE_USERNAME, username);
                             editor.putString(SQLConnection.SHARED_PREFERENCE_PASSWORD, password);
+                            editor.putString(SQLConnection.SHARED_PREFERENCE_NO_KTP, nomorktp);
 
                             /**
                              * Simpan Nilai ke Variabel editor
@@ -298,6 +301,11 @@ public class LoginActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    private boolean isSpacing(String spacing)
+    {
+        return spacing.contains(" ");
+    }
+
     private void ValidateLogin ()
     {
         /**
@@ -315,9 +323,21 @@ public class LoginActivity extends AppCompatActivity {
             focusView = text_username;
             cancel = true;
         }
+        else if (isSpacing(username))
+        {
+            text_username.setError("* tidak boleh ada spasi");
+            focusView = text_username;
+            cancel = true;
+        }
         else if (TextUtils.isEmpty(password))
         {
             text_password.setError("* harus diisi");
+            focusView = text_password;
+            cancel = true;
+        }
+        else if (isSpacing(password))
+        {
+            text_password.setError("* tidak boleh ada spasi");
             focusView = text_password;
             cancel = true;
         }

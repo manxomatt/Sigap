@@ -567,7 +567,7 @@
                 tools:ignore="TooManyViews">
                 <EditText
                     android:id="@+id/text_nomortelepon"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:textStyle="normal"

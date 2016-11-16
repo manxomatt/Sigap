@@ -5,9 +5,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,15 +28,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.sigap.AboutApp2Activity;
 import com.app.sigap.BantuanTerdekatActivity;
 import com.app.sigap.BeritaPolresActivity;
 import com.app.sigap.LiveChatActivity;
 import com.app.sigap.LoginActivity;
+import com.app.sigap.PanicShotActivity;
 import com.app.sigap.PelayananPolresActivity;
 import com.app.sigap.PengaturanActivity;
-import com.app.sigap.QiscusChatActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
 import com.app.sources.MainMenuIDE;
@@ -39,7 +45,7 @@ import com.app.sources.SQLConnection;
 import com.lib.font.CustomTypefaceSpan;
 
 public class MainMenuActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, android.location.LocationListener {
 
     /**
      * UI Reference
@@ -58,6 +64,7 @@ public class MainMenuActivity extends AppCompatActivity
     private ImageView label_button_promoter_img;
     private ImageView label_button_sherif_img;
     private ImageView label_button_police_img;
+    private ImageView label_button_panic_img;
 
     private MenuItem nav_menu_informasi;
     private MenuItem nav_menu_aplikasi;
@@ -68,7 +75,10 @@ public class MainMenuActivity extends AppCompatActivity
     /**
      * Variables
      * */
-
+    private static final int TAG_CODE_PERMISSION_LOCATION = 1945;
+    private TapPanicState tapPanicState;
+    private double latitude;
+    private double longitude;
     /**
      * End of Variables
      * */
@@ -119,6 +129,10 @@ public class MainMenuActivity extends AppCompatActivity
         /**
          * Dashboard listener
          * */
+        tapPanicState = new TapPanicState();
+
+        setupPanicButtonListener();
+
         ClickLiveChat();
 
         ClickBantuanTerdekat();
@@ -129,6 +143,64 @@ public class MainMenuActivity extends AppCompatActivity
          * */
     }
 
+    private void setupPanicButtonListener() {
+        label_button_panic_img = (ImageView) findViewById(R.id.label_button_panic_img);
+
+        label_button_panic_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!tapPanicState.maxTapReached()) {
+                    tapPanicState.increase();
+
+                    String message = String.format(getResources().getString(R.string.panic_button_tap_counter_needed),
+                            tapPanicState.getRemainingTap());
+
+                    Toast.makeText(MainMenuActivity.this, message, Toast.LENGTH_SHORT) .show();
+                } else {
+                    tapPanicState.reset();
+
+                    startPanicRequest();
+                }
+            }
+        });
+    }
+
+    private void startPanicRequest() {
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, new String[] {
+                            android.Manifest.permission.ACCESS_FINE_LOCATION,
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION },
+                    TAG_CODE_PERMISSION_LOCATION);
+
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        Criteria criteria = new Criteria();
+
+        String bestProvider = locationManager.getBestProvider(criteria, true);
+
+        Location location = locationManager.getLastKnownLocation(bestProvider);
+
+        if (location != null) {
+            onLocationChanged(location);
+        } else {
+            Toast.makeText(this, "Cannot determine current location", Toast.LENGTH_SHORT).show();
+        }
+
+        locationManager.requestLocationUpdates(bestProvider, 20000, 0, this);
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -136,6 +208,55 @@ public class MainMenuActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+
+        Intent intent = new Intent(this, PanicShotActivity.class);
+
+        intent.putExtra(getResources().getString(R.string.latitude), latitude);
+        intent.putExtra(getResources().getString(R.string.longitude), longitude);
+
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
+    private class TapPanicState {
+        int TAP_NEEDED = 3;
+        int tapCounter;
+
+        void increase() {
+            tapCounter++;
+        }
+
+        void reset() {
+            tapCounter = 0;
+        }
+
+        boolean maxTapReached() {
+            return tapCounter == (TAP_NEEDED - 1);
+        }
+
+        int getRemainingTap() {
+            return TAP_NEEDED - tapCounter;
         }
     }
 
@@ -197,11 +318,9 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
                 //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
+                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
                 startActivity(intent);
             }
         });
@@ -213,10 +332,9 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
                 //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
+                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
                 startActivity(intent);
             }
         });

@@ -1,6 +1,8 @@
 package com.app.sigap;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -21,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 import com.app.sources.UserIDE;
 
@@ -51,6 +54,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         );
 
         setContentView(R.layout.activity_forget_password);
+
+        setNomorKTP();
 
         setFont();
 
@@ -200,9 +205,9 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             focusView = text_email;
             cancel = true;
         }
-        else if (nomorktp.length() < UserIDE.nomorktp_length)
+        else if (nomorktp.length() < UserIDE.length_nomorktp)
         {
-            text_nomorktp.setError("* nomor ktp " + UserIDE.nomorktp_length + " digit");
+            text_nomorktp.setError("* panjang nomor ktp harus " + UserIDE.length_nomorktp + " digit");
             focusView = text_nomorktp;
             cancel = true;
         }
@@ -272,6 +277,65 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
         button_back.setTypeface(typeface_regular);
         button_submit_forget_password.setTypeface(typeface_regular);
+    }
+
+    private void setMessage()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(MainMenuIDE.pesan_account_nothing);
+        builder.setPositiveButton(
+            "Ok",
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    /**
+                     * Back to login
+                     * */
+                    Intent intent = new Intent(ForgetPasswordActivity.this, LoginActivity.class);
+                    startActivity(intent);
+
+                    /**
+                     * End of main menu activity
+                     * */
+                    finishAffinity();
+                }
+            }
+        );
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void setNomorKTP ()
+    {
+        /**
+         * Object
+         * */
+        text_nomorktp = (EditText) findViewById(R.id.text_nomorktp);
+        text_email = (EditText) findViewById(R.id.text_email);
+
+        /**
+         * Buatkan sebuah shared preference
+         * */
+        SharedPreferences sharedPreferences;
+        sharedPreferences = getSharedPreferences(
+                SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+        );
+
+        String nomorktp;
+        nomorktp = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_NO_KTP, "");
+
+        if (nomorktp.isEmpty() == true)
+        {
+            setMessage();
+        }
+        else
+        {
+            text_nomorktp.setText(nomorktp);
+            text_nomorktp.setEnabled(false);
+
+            text_email.requestFocus();
+        }
     }
 
 }

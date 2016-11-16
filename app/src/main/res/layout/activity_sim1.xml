@@ -59,7 +59,7 @@
                             android:id="@+id/txt_channel_name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textSize="10pt"
+                            android:textSize="9.5pt"
                             android:textStyle="normal"
                             android:text="Pelayanan SIM"
                             android:textColor="#ffffff"

@@ -73,6 +73,14 @@ public interface SimIDE {
      * */
 
     /**
+     * SIM -> Panjang karakter
+     * */
+    Integer length_nomorktp = 16;
+    /**
+     * End of SIM -> Panjang karakter
+     * */
+
+    /**
      * SIM -> Pekerjaan
      * */
     String pekerjaan_1 = "Pelajar / Mhs";

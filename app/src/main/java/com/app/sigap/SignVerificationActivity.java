@@ -170,6 +170,11 @@ public class SignVerificationActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    private boolean isSpacing(String spacing)
+    {
+        return spacing.contains(" ");
+    }
+
     private void ValidateForm ()
     {
         /**
@@ -195,6 +200,12 @@ public class SignVerificationActivity extends AppCompatActivity {
             focusView = text_username;
             cancel = true;
         }
+        else if (isSpacing(username))
+        {
+            text_username.setError("* tidak boleh ada spasi");
+            focusView = text_username;
+            cancel = true;
+        }
         else if (TextUtils.isEmpty(password))
         {
             text_password.setError("* harus diisi");
@@ -207,6 +218,12 @@ public class SignVerificationActivity extends AppCompatActivity {
             focusView = text_password;
             cancel = true;
         }
+        else if (isSpacing(password))
+        {
+            text_password.setError("* tidak boleh ada spasi");
+            focusView = text_password;
+            cancel = true;
+        }
         else if (TextUtils.isEmpty(repeat_password))
         {
             text_repeat_password.setError("* harus diisi");
@@ -216,6 +233,12 @@ public class SignVerificationActivity extends AppCompatActivity {
         else if (repeat_password.length() < 6)
         {
             text_repeat_password.setError("* min password 6 karakter");
+            focusView = text_repeat_password;
+            cancel = true;
+        }
+        else if (isSpacing(repeat_password))
+        {
+            text_repeat_password.setError("* tidak boleh ada spasi");
             focusView = text_repeat_password;
             cancel = true;
         }

@@ -6,6 +6,6 @@ package com.app.sources;
 
 public interface UserIDE {
 
-    Integer nomorktp_length = 16;
+    Integer length_nomorktp = 16;
 
 }

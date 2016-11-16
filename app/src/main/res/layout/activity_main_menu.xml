@@ -5,15 +5,9 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_dashboard_red"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-
-    <ImageView
-        android:src="@drawable/img_dashboard_red"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription" />
 
     <include
         layout="@layout/app_bar_main_menu"

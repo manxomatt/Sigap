@@ -1,8 +1,10 @@
 package com.app.sigap;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -152,6 +154,8 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
         setTanggalLahir();
 
         setTahunSmartphone();
+
+        setNomorKTP();
         /**
          * End of Special config
          * */
@@ -626,7 +630,15 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
                 tglMid = spinner_tanggallahir_bulan.getSelectedItem().toString();
                 tglRight = spinner_tanggallahir_tanggal.getSelectedItem().toString();
                 tglLeft = text_tanggallahir_tahun.getText().toString();
-                iTglLeft = Integer.parseInt(tglLeft);
+
+                if (tglLeft.isEmpty())
+                {
+                    iTglLeft = 0;
+                }
+                else
+                {
+                    iTglLeft = Integer.parseInt(tglLeft);
+                }
                 iTglLeftSmartphone = Integer.parseInt(SimLog.getTglLeftSmartphone());
                 iUsia = iTglLeftSmartphone - iTglLeft;
                 TanggalLahir = tglLeft + "-" + tglMid + "-" + tglRight;
@@ -702,6 +714,7 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
                     message = "Anda belum mengisikan tahun lahir.";
                     Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
                 }
+
                 else if (iTglLeft > iTglLeftSmartphone)
                 {
                     message = "Mohon masukan tahun lahir dengan benar.";
@@ -747,6 +760,11 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
                 {
                     message = "Anda belum mengisikan nomor KTP.";
                     Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
+                }
+                else if (NomorKTP.length() < SimIDE.length_nomorktp)
+                {
+                    text_nomorktp.setError("* panjang nomor ktp harus " + SimIDE.length_nomorktp + " digit");
+                    text_nomorktp.requestFocus();
                 }
                 else
                 {
@@ -1617,6 +1635,33 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
 
         button_back_pendidikan.setTypeface(typeface_regular);
         button_finish_pendidikan.setTypeface(typeface_regular);
+    }
+
+    private void setNomorKTP ()
+    {
+        /**
+         * Object
+         * */
+        text_nomorktp = (EditText) findViewById(R.id.text_nomorktp);
+
+        /**
+         * Buatkan sebuah shared preference
+         * */
+        SharedPreferences sharedPreferences;
+        sharedPreferences = getSharedPreferences(
+            SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+        );
+
+        String nomorktp;
+        nomorktp = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_NO_KTP, "");
+
+        /**
+         * Set nomor KTP into memory option
+         * */
+        SimLog.setNomorKTP(nomorktp);
+
+        text_nomorktp.setText(nomorktp);
+        text_nomorktp.setEnabled(false);
     }
 
     @SuppressWarnings("")

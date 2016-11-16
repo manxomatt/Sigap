@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.app.master.MainMenuActivity;
 import com.app.sources.MemberLog;
 import com.app.sources.SQLConnection;
+import com.app.sources.UserIDE;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -108,6 +109,11 @@ public class SignupActivity extends AppCompatActivity {
         return email.contains("@");
     }
 
+    private boolean isSpacing(String spacing)
+    {
+        return spacing.contains(" ");
+    }
+
     private void ValidateForm()
     {
         /**
@@ -125,6 +131,12 @@ public class SignupActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(nomor_ktp))
         {
             text_nomor_ktp.setError("* harus diisi");
+            focusView = text_nomor_ktp;
+            cancel = true;
+        }
+        else if (nomor_ktp.length() < UserIDE.length_nomorktp)
+        {
+            text_nomor_ktp.setError("* panjang nomor ktp harus " + UserIDE.length_nomorktp + " digit");
             focusView = text_nomor_ktp;
             cancel = true;
         }
@@ -149,6 +161,12 @@ public class SignupActivity extends AppCompatActivity {
         else if (!isEmailValid(email))
         {
             text_email.setError("* email salah");
+            focusView = text_email;
+            cancel = true;
+        }
+        else if (isSpacing(email))
+        {
+            text_email.setError("* tidak boleh ada spasi");
             focusView = text_email;
             cancel = true;
         }
@@ -215,6 +233,29 @@ public class SignupActivity extends AppCompatActivity {
                     }
                     else
                     {
+                        /**
+                         * Buatkan sebuah shared preference
+                         * */
+                        SharedPreferences sharedPreferences;
+                        sharedPreferences = SignupActivity.this.getSharedPreferences(
+                            SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+                        );
+
+                        /**
+                         * Buatkan Sebuah variabel Editor Untuk penyimpanan Nilai shared preferences
+                         * */
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                        /**
+                         * Simpan Nilai ke Variabel editor
+                         * */
+                        editor.commit();
+
+                        /**
+                         * Tambahkan Nilai ke Editor
+                         * */
+                        editor.putString(SQLConnection.SHARED_PREFERENCE_NO_KTP, nomor_ktp);
+
                         /**
                          * Set variables into memory options
                          * */

@@ -152,7 +152,7 @@ public class SQLConnection {
      * */
     public static final String SHARED_PREFERENCE_USERNAME = "username";
     public static final String SHARED_PREFERENCE_PASSWORD =  "password";
-    public static final String SHARED_PREFERENCE_NO_KTP = "identity_number";
+    public static final String SHARED_PREFERENCE_NO_KTP = "nomorktp"; //identity_number
     public static final String SHARED_PREFERENCE_EMAIL = "email";
 
 }

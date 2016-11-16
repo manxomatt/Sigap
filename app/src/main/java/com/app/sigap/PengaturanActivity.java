@@ -39,7 +39,7 @@ public class PengaturanActivity extends AppCompatActivity {
     private Button button_update_password;
     private EditText text_password_old, text_password_new, text_password_new_repeat;
     private ImageButton btn_close;
-    private TextView label_gantipassword;
+    private TextView txt_channel_name, label_gantipassword;
     /**
      * End of UI reference
      * */
@@ -134,6 +134,21 @@ public class PengaturanActivity extends AppCompatActivity {
                     message = "Mohon lengkapi form dengan benar.";
                     Toast.makeText(PengaturanActivity.this, message, Toast.LENGTH_LONG).show();
                 }
+                else if (isSpacing(password_old))
+                {
+                    text_password_old.setError("* tidak boleh ada spasi");
+                    text_password_old.requestFocus();
+                }
+                else if (isSpacing(password_new))
+                {
+                    text_password_new.setError("* tidak boleh ada spasi");
+                    text_password_new.requestFocus();
+                }
+                else  if (isSpacing(password_new_repeat))
+                {
+                    text_password_new_repeat.setError("* tidak boleh ada spasi");
+                    text_password_new_repeat.requestFocus();
+                }
                 else if (!password_old.equalsIgnoreCase(sCheckOldPasword))
                 {
                     message = "Masukan password lama dengan benar." + "\n";
@@ -189,6 +204,11 @@ public class PengaturanActivity extends AppCompatActivity {
         });
     }
 
+    private boolean isSpacing(String spacing)
+    {
+        return spacing.contains(" ");
+    }
+
     @SuppressWarnings("")
     private void setFonts ()
     {
@@ -196,6 +216,7 @@ public class PengaturanActivity extends AppCompatActivity {
         text_password_old = (EditText) findViewById(R.id.text_password_old);
         text_password_new = (EditText) findViewById(R.id.text_password_new);
         text_password_new_repeat = (EditText) findViewById(R.id.text_password_new_repeat);
+        txt_channel_name = (TextView) findViewById(R.id.txt_channel_name);
         label_gantipassword = (TextView) findViewById(R.id.label_gantipassword);
 
         /**
@@ -213,6 +234,7 @@ public class PengaturanActivity extends AppCompatActivity {
         /**
          * Set custom fonts
          * */
+        txt_channel_name.setTypeface(typeface_regular);
         label_gantipassword.setTypeface(typeface_semibold);
         text_password_old.setTypeface(typeface_regular);
         text_password_new.setTypeface(typeface_regular);
