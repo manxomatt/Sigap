@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.app.sigap">
+<manifest package="com.app.sigap"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -240,7 +240,17 @@
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen"/>
+            android:theme="@style/SplashScreen" />
+
+        <activity
+            android:name=".PanicShotActivity"
+            android:label="@string/title_activity_panic_shot"
+            android:parentActivityName="com.app.master.MainMenuActivity"
+            android:theme="@style/PanicShot">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.app.master.MainMenuActivity" />
+        </activity>
     </application>
 
 </manifest>
