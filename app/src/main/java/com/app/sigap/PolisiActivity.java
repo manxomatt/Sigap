@@ -58,8 +58,8 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
-    EditText txt_id, txt_nama, txt_keterangan;
-    String id, nama, alamat;
+    EditText txt_id, txt_nama, txt_alamat, txt_telepon;
+    String id, nama, alamat, telepon;
 
     private ImageButton btn_close;
     private TextView txt_channel_name;
@@ -74,7 +74,8 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
 
     public static final String TAG_ID       = "id";
     public static final String TAG_NAMA     = "nama";
-    public static final String TAG_ALAMAT   = "keterangan";
+    public static final String TAG_ALAMAT   = "alamat";
+    public static final String TAG_TELEPON  = "telepon";
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
@@ -211,11 +212,12 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
     private void kosong(){
         txt_id.setText(null);
         txt_nama.setText(null);
-        txt_keterangan.setText(null);
+        txt_alamat.setText(null);
+        txt_telepon.setText(null);
     }
 
     // untuk menampilkan dialog from kontak
-    private void DialogForm(String idx, String namax, String alamatx, String button) {
+    private void DialogForm(String idx, String namax, String alamatx, String teleponx, String button) {
         dialog = new AlertDialog.Builder(PolisiActivity.this);
         inflater = getLayoutInflater();
         dialogView = inflater.inflate(R.layout.form_polisi, null);
@@ -225,12 +227,14 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
 
         txt_id      = (EditText) dialogView.findViewById(R.id.txt_id);
         txt_nama    = (EditText) dialogView.findViewById(R.id.txt_nama);
-        txt_keterangan  = (EditText) dialogView.findViewById(R.id.txt_keterangan);
+        txt_alamat  = (EditText) dialogView.findViewById(R.id.txt_alamat);
+        txt_telepon = (EditText) dialogView.findViewById(R.id.txt_telepon);
 
         if (!idx.isEmpty()){
             txt_id.setText(idx);
             txt_nama.setText(namax);
-            txt_keterangan.setText(alamatx);
+            txt_alamat.setText(alamatx);
+            txt_telepon.setText(teleponx);
         } else {
             kosong();
         }
@@ -241,7 +245,8 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
             public void onClick(DialogInterface dialog, int which) {
                 id      = txt_id.getText().toString();
                 nama    = txt_nama.getText().toString();
-                alamat  = txt_keterangan.getText().toString();
+                alamat  = txt_alamat.getText().toString();
+                telepon = txt_telepon.getText().toString();
 
                 simpan_update();
                 dialog.dismiss();
@@ -282,6 +287,7 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
                         item.setId(obj.getString(TAG_ID));
                         item.setNama(obj.getString(TAG_NAMA));
                         item.setAlamat(obj.getString(TAG_ALAMAT));
+                        item.setTelepon(obj.getString(TAG_TELEPON));
 
                         // menambah item ke array
                         itemList.add(item);
@@ -396,8 +402,9 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
                         String idx      = jObj.getString(TAG_ID);
                         String namax    = jObj.getString(TAG_NAMA);
                         String alamatx  = jObj.getString(TAG_ALAMAT);
+                        String teleponx = jObj.getString(TAG_TELEPON);
 
-                        DialogForm(idx, namax, alamatx, "UPDATE");
+                        DialogForm(idx, namax, alamatx, teleponx, "UPDATE");
 
                         adapter.notifyDataSetChanged();
 

@@ -30,14 +30,13 @@ import com.app.sigap.BeritaPolresActivity;
 import com.app.sigap.LiveChatActivity;
 import com.app.sigap.LoginActivity;
 import com.app.sigap.PelayananPolresActivity;
+import com.app.sigap.PengaturanActivity;
 import com.app.sigap.QiscusChatActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
-import com.app.sources.ChatIDE;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 import com.lib.font.CustomTypefaceSpan;
-import com.sendbird.android.SendBird;
 
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -179,7 +178,7 @@ public class MainMenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_app_about) {
             NavAppAbout();
         } else if (id == R.id.nav_setting) {
-
+            NavPengaturan();
         } else if (id == R.id.nav_exit) {
             NavExit();
         }
@@ -199,7 +198,10 @@ public class MainMenuActivity extends AppCompatActivity
                  * Start live chat activity
                  * */
                 Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
-
+                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -212,7 +214,9 @@ public class MainMenuActivity extends AppCompatActivity
                  * Start live chat activity
                  * */
                 Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
-
+                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -315,6 +319,9 @@ public class MainMenuActivity extends AppCompatActivity
                     editor.putString(
                         SQLConnection.SHARED_PREFERENCE_USERNAME, ""
                     );
+                    editor.putString(
+                        SQLConnection.SHARED_PREFERENCE_PASSWORD, ""
+                    );
 
                     /**
                      * Save to shared preferences
@@ -348,6 +355,20 @@ public class MainMenuActivity extends AppCompatActivity
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void NavPengaturan ()
+    {
+        /**
+         * End of main dashboard
+         * */
+        finishAffinity();
+
+        /**
+         * Launch pengaturan
+         * */
+        Intent intent = new Intent(MainMenuActivity.this, PengaturanActivity.class);
+        startActivity(intent);
     }
 
     private void NavPoliceNews ()
@@ -434,7 +455,7 @@ public class MainMenuActivity extends AppCompatActivity
         for (int i=0;i<m.size();i++) {
             MenuItem mi = m.getItem(i);
 
-            //for applying a font to subMenu ...
+            //for aapplying a font to subMenu ...
             SubMenu subMenu = mi.getSubMenu();
             if (subMenu!=null && subMenu.size() >0 ) {
                 for (int j=0; j < subMenu.size();j++) {

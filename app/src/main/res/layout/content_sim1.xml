@@ -341,14 +341,41 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
 
-                <EditText
-                    android:id="@+id/text_tanggallahir"
-                    android:inputType="date"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:textStyle="normal"
-                    android:textSize="7pt"
-                    tools:ignore="LabelFor,TextFields" />
+                    android:layout_height="match_parent"
+                    tools:ignore="UselessParent">
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".35"
+                        android:textStyle="normal"
+                        android:textSize="6.5pt"
+                        android:id="@+id/spinner_tanggallahir_bulan" />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".35"
+                        android:textStyle="normal"
+                        android:textSize="6.5pt"
+                        android:id="@+id/spinner_tanggallahir_tanggal" />
+
+                    <EditText
+                        android:id="@+id/text_tanggallahir_tahun"
+                        android:hint="tahun"
+                        android:textAlignment="center"
+                        android:inputType="date"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.30"
+                        android:maxLength="4"
+                        android:textStyle="normal"
+                        android:textSize="7pt"
+                        tools:ignore="HardcodedText,LabelFor,TextFields" />
+                </LinearLayout>
             </TableRow>
             <!-- End of Tanggal lahir -->
 
@@ -519,7 +546,7 @@
             <TableRow
                 android:layout_height="25dp"
                 android:layout_width="match_parent"
-                tools:ignore="UselessLeaf">
+                tools:ignore="TooManyViews,UselessLeaf">
             </TableRow>
             <!-- End of Separator -->
 

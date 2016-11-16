@@ -29,7 +29,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.app.adapter.Adapter;
+import com.app.adapter.AdapterKapolres;
 import com.app.config.AppController;
 import com.app.master.MainMenuActivity;
 import com.app.sources.Data;
@@ -69,13 +69,13 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
     ListView list;
     SwipeRefreshLayout swipe;
     List<Data> itemList = new ArrayList<Data>();
-    Adapter adapter;
+    AdapterKapolres adapter;
     int success;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
     View dialogView;
     EditText txt_id, txt_nama, txt_keterangan;
-    String id, nama, alamat;
+    String id, nama, keterangan;
 
     private ImageButton btn_close;
     private TextView txt_channel_name;
@@ -90,7 +90,7 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
 
     public static final String TAG_ID       = "id";
     public static final String TAG_NAMA     = "nama";
-    public static final String TAG_ALAMAT   = "keterangan";
+    public static final String TAG_KETERANGAN   = "keterangan";
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
@@ -125,7 +125,7 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
         list    = (ListView) findViewById(R.id.list);
 
         // untuk mengisi data dari JSON ke dalam adapter
-        adapter = new Adapter(TentangPolresActivity.this, itemList);
+        adapter = new AdapterKapolres(TentangPolresActivity.this, itemList);
         list.setAdapter(adapter);
 
         // menamilkan widget refresh
@@ -353,10 +353,10 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
     }
 
     // untuk menampilkan dialog from kontak
-    private void DialogForm(String idx, String namax, String alamatx, String button) {
+    private void DialogForm(String idx, String namax, String keteranganx, String button) {
         dialog = new AlertDialog.Builder(TentangPolresActivity.this);
         inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.form_polisi, null);
+        dialogView = inflater.inflate(R.layout.form_kapolres, null);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
         dialog.setTitle("Form Entry");
@@ -368,7 +368,7 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
         if (!idx.isEmpty()){
             txt_id.setText(idx);
             txt_nama.setText(namax);
-            txt_keterangan.setText(alamatx);
+            txt_keterangan.setText(keteranganx);
         } else {
             kosong();
         }
@@ -379,7 +379,7 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
             public void onClick(DialogInterface dialog, int which) {
                 id      = txt_id.getText().toString();
                 nama    = txt_nama.getText().toString();
-                alamat  = txt_keterangan.getText().toString();
+                keterangan  = txt_keterangan.getText().toString();
 
                 simpan_update();
                 dialog.dismiss();
@@ -419,7 +419,7 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
 
                         item.setId(obj.getString(TAG_ID));
                         item.setNama(obj.getString(TAG_NAMA));
-                        item.setAlamat(obj.getString(TAG_ALAMAT));
+                        item.setKeterangan(obj.getString(TAG_KETERANGAN));
 
                         // menambah item ke array
                         itemList.add(item);
@@ -501,11 +501,11 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
                 // jika id kosong maka simpan, jika id ada nilainya maka update
                 if (id.isEmpty()){
                     params.put("nama", nama);
-                    params.put("keterangan", alamat);
+                    params.put("keterangan", keterangan);
                 } else {
                     params.put("id", id);
                     params.put("nama", nama);
-                    params.put("keterangan", alamat);
+                    params.put("keterangan", keterangan);
                 }
 
                 return params;
@@ -533,9 +533,9 @@ public class TentangPolresActivity extends AppCompatActivity implements SwipeRef
                         Log.d("get edit data", jObj.toString());
                         String idx      = jObj.getString(TAG_ID);
                         String namax    = jObj.getString(TAG_NAMA);
-                        String alamatx  = jObj.getString(TAG_ALAMAT);
+                        String keteranganx  = jObj.getString(TAG_KETERANGAN);
 
-                        DialogForm(idx, namax, alamatx, "UPDATE");
+                        DialogForm(idx, namax, keteranganx, "UPDATE");
 
                         adapter.notifyDataSetChanged();
 

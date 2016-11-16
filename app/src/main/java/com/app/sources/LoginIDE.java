@@ -7,8 +7,12 @@ package com.app.sources;
 public interface LoginIDE
 {
 
-    String username = "inrelt";
-
-    String password = "1234567890";
+    /**
+     * User preference
+     * */
+    Integer password_min_length = 6;
+    /**
+     * End of User preference
+     * */
 
 }

@@ -205,6 +205,7 @@
 
         <!-- Yudi Chat -->
 
+
         <!-- Pelayanan Polres : SKCK -->
         <activity
             android:name=".SKCKActivity"
@@ -232,6 +233,14 @@
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
 
+        <!-- Pengaturan : ganti password, ubah identitas, dll -->
+        <activity
+            android:name=".PengaturanActivity"
+            android:label="@string/title_activity_pengaturan"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
+            android:theme="@style/SplashScreen"/>
     </application>
 
 </manifest>

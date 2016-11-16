@@ -6,15 +6,32 @@ package com.app.sources;
 
 public class Data {
 
-    private String id, nama, alamat, tahun;
+    private String id, nama, alamat, tahun, telepon, keterangan;
 
     public Data() {
     }
 
-    public Data(String id, String nama, String alamat) {
+    public Data(String id, String nama, String alamat, String telepon) {
         this.id = id;
         this.nama = nama;
         this.alamat = alamat;
+        this.telepon = telepon;
+    }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+
+    public String getTelepon() {
+        return telepon;
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
     }
 
     public String getId() {

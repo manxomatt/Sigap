@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/polres_visi"
                     android:layout_gravity="left|center_horizontal"
-                    tools:ignore="HardcodedText,TooManyViews" />
+                    tools:ignore="HardcodedText,RtlHardcoded,TooManyViews" />
             </TableRow>
             <!-- End of Visi -->
 
@@ -163,7 +163,7 @@
                 android:layout_height="1.5dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                />
+                tools:ignore="UselessLeaf" />
             <!-- End of separator -->
 
             <!-- Misi -->
@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/polres_misi"
                     android:layout_gravity="left|center_horizontal"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText,RtlHardcoded" />
             </TableRow>
             <!-- End of Misi -->
 
@@ -197,7 +197,7 @@
                 android:layout_height="1.5dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                />
+                tools:ignore="UselessLeaf" />
             <!-- End of separator -->
 
             <!-- Struktur Organisasi -->
@@ -359,7 +359,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:background="@drawable/img_polres_gmaps"
-                    android:layout_gravity="center_vertical|center_horizontal"/>
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    tools:ignore="ContentDescription" />
             </TableRow>
 
         </LinearLayout>

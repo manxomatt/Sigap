@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
      * Set this var as false.
      * */
     private boolean login = false;
+    private static int shutdown_interval = 5000;
 
     /**
      * UI Reference
@@ -122,6 +124,31 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        /**
+         * End of login activity
+         * */
+        finishAffinity();
+
+        new Handler().postDelayed(
+            new Runnable() {
+                @Override
+                public void run() {
+                    /**
+                     * Shutdown app system
+                     * */
+                    System.exit(0);
+                    /**
+                     * End of shutdown app system
+                     * */
+                    finishAffinity();
+                }
+            }
+        , shutdown_interval);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
 
@@ -191,7 +218,8 @@ public class LoginActivity extends AppCompatActivity {
                             /**
                              * Buatkan sebuah shared preference
                              * */
-                            SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences(
+                            SharedPreferences sharedPreferences;
+                            sharedPreferences = LoginActivity.this.getSharedPreferences(
                                 SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
                             );
 
@@ -205,11 +233,23 @@ public class LoginActivity extends AppCompatActivity {
                              * */
                             editor.putBoolean(SQLConnection.SHARED_PREFERENCE_LOGIN, true);
                             editor.putString(SQLConnection.SHARED_PREFERENCE_USERNAME, username);
+                            editor.putString(SQLConnection.SHARED_PREFERENCE_PASSWORD, password);
 
                             /**
                              * Simpan Nilai ke Variabel editor
                              * */
                             editor.commit();
+
+                            /* this is how to get values of shared preference :*/
+                            sharedPreferences = getSharedPreferences(SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE);
+
+                            String message;
+                            message = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_USERNAME, "") + "\n";
+                            message = message + sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_PASSWORD, "");
+                            System.out.println(message);
+                            /*
+                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
+                            */
 
                             /**
                              * Start main menu activity

@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -34,6 +35,10 @@ import com.app.sources.SQLConnection;
 import com.app.sources.SimIDE;
 import com.app.sources.SimLog;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,13 +49,14 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
      * */
     private Button button_next_identitas, button_back_keluarga, button_next_keluarga;
     private Button button_back_pendidikan, button_finish_pendidikan;
-    private EditText text_namadepan, text_namabelakang, text_tinggibadan, text_tempatlahir, text_tanggallahir;
+    private EditText text_namadepan, text_namabelakang, text_tinggibadan, text_tempatlahir, text_tanggallahir_tahun;
     private EditText text_alamatlengkap, text_rtrw, text_kota, text_kodepos, text_nomortelepon;
     private EditText text_nomorktp, text_namaayah, text_namaibu;
     private ImageButton btn_close;
     private RadioButton radio_pria, radio_wanita, radio_wni, radio_wna;
     private RelativeLayout ct_data_sim1, ct_data_sim2, ct_data_sim3;
     private Spinner spinner_jenis_permohonan, spinner_golongansim, spinner_pekerjaan;
+    private Spinner spinner_tanggallahir_bulan, spinner_tanggallahir_tanggal;
     private Spinner spinner_pendidikan, spinner_cacatfisiklain;
     private TabLayout tabs;
     private TextView txt_channel_name;
@@ -87,6 +93,10 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
 
         LoadGolonganSIM();
 
+        LoadTanggalLahirListsBulan();
+
+        LoadTanggalLahirListsTanggal(true);
+
         LoadPekerjaan();
 
         LoadPendidikan();
@@ -111,6 +121,10 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
 
         ClickKewarganegaraan();
 
+        ClickTanggalLahirBulan();
+
+        ClickTanggalLahirTanggal();
+
         ClickPekerjaan();
 
         ClickSelanjutnyaOnIdentitas();
@@ -134,6 +148,10 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
          * Special config
          * */
         setTabs();
+
+        setTanggalLahir();
+
+        setTahunSmartphone();
         /**
          * End of Special config
          * */
@@ -570,6 +588,8 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
                 radio_wna = (RadioButton) findViewById(R.id.radio_wna);
                 spinner_jenis_permohonan = (Spinner) findViewById(R.id.spinner_jenis_permohonan);
                 spinner_golongansim = (Spinner) findViewById(R.id.spinner_golongansim);
+                spinner_tanggallahir_bulan = (Spinner) findViewById(R.id.spinner_tanggallahir_bulan);
+                spinner_tanggallahir_tanggal = (Spinner) findViewById(R.id.spinner_tanggallahir_tanggal);
                 spinner_pekerjaan = (Spinner) findViewById(R.id.spinner_pekerjaan);
                 tabs = (TabLayout) findViewById(R.id.tabs);
                 ct_data_sim1 = (RelativeLayout) findViewById(R.id.ct_data_sim1);
@@ -585,12 +605,17 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
                 String JenisPermohonan, GolonganSIM, Pekerjaan;
                 String NamaDepan, NamaBelakang;
                 String TinggiBadan, TempatLahir, TanggalLahir;
+                String tglLeft, tglMid, tglRight;
                 String AlamatLengkap, RTRW, Kota, KodePos, NomorTelepon, NomorKTP;
+                Integer iTglLeftSmartphone, iTglLeft, iUsia;
                 TextView textJenisPermohonan, textGolonganSIM, textPekerjaan;
+                TextView textBulan, textTanggal;
 
                 textJenisPermohonan = (TextView) spinner_jenis_permohonan.getSelectedView();
                 textGolonganSIM = (TextView) spinner_golongansim.getSelectedView();
                 textPekerjaan = (TextView) spinner_pekerjaan.getSelectedView();
+                textBulan = (TextView) spinner_tanggallahir_bulan.getSelectedView();
+                textTanggal = (TextView) spinner_tanggallahir_tanggal.getSelectedView();
 
                 JenisPermohonan = spinner_jenis_permohonan.getSelectedItem().toString();
                 GolonganSIM = spinner_golongansim.getSelectedItem().toString();
@@ -598,7 +623,13 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
                 NamaBelakang = text_namabelakang.getText().toString();
                 TinggiBadan = text_tinggibadan.getText().toString();
                 TempatLahir = text_tempatlahir.getText().toString();
-                TanggalLahir = text_tanggallahir.getText().toString();
+                tglMid = spinner_tanggallahir_bulan.getSelectedItem().toString();
+                tglRight = spinner_tanggallahir_tanggal.getSelectedItem().toString();
+                tglLeft = text_tanggallahir_tahun.getText().toString();
+                iTglLeft = Integer.parseInt(tglLeft);
+                iTglLeftSmartphone = Integer.parseInt(SimLog.getTglLeftSmartphone());
+                iUsia = iTglLeftSmartphone - iTglLeft;
+                TanggalLahir = tglLeft + "-" + tglMid + "-" + tglRight;
                 Pekerjaan = spinner_pekerjaan.getSelectedItem().toString();
                 AlamatLengkap = text_alamatlengkap.getText().toString();
                 RTRW = text_rtrw.getText().toString();
@@ -654,9 +685,31 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
                     message = "Anda belum mengisikan tempat lahir.";
                     Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
                 }
-                else if (TanggalLahir.isEmpty() == true)
+                else if (tglMid.equalsIgnoreCase(SimIDE.spinner_default_bulan_index_0))
                 {
-                    message = "Anda belum mengisikan tanggal lahir.";
+                    message = "Anda belum memilih bulan lahir.";
+                    textBulan.setError(null);
+                    Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
+                }
+                else if (tglRight.equalsIgnoreCase(SimIDE.spinner_default_tanggal_index_0))
+                {
+                    message = "Anda belum memilih tanggal lahir.";
+                    textTanggal.setError(null);
+                    Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
+                }
+                else if (tglLeft.isEmpty() == true)
+                {
+                    message = "Anda belum mengisikan tahun lahir.";
+                    Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
+                }
+                else if (iTglLeft > iTglLeftSmartphone)
+                {
+                    message = "Mohon masukan tahun lahir dengan benar.";
+                    Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
+                }
+                else if (iUsia < SimIDE.usia_minimal)
+                {
+                    message = "Usia minimal 17 tahun.";
                     Toast.makeText(Sim1Activity.this, message, Toast.LENGTH_LONG).show();
                 }
                 else if (Pekerjaan.equalsIgnoreCase(SimIDE.spinner_default_value_index_0))
@@ -884,6 +937,191 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
         });
     }
 
+    private void ClickTanggalLahirBulan ()
+    {
+        /**
+         * Object
+         * */
+        spinner_tanggallahir_bulan = (Spinner) findViewById(R.id.spinner_tanggallahir_bulan);
+
+        /**
+         * Implement
+         * */
+        spinner_tanggallahir_bulan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // An item was selected. You can retrieve the selected item using
+                // parent.getItemAtPosition(pos)
+
+                /**
+                 * Objects
+                 * */
+                spinner_tanggallahir_tanggal = (Spinner) findViewById(R.id.spinner_tanggallahir_tanggal);
+                text_tanggallahir_tahun = (EditText) findViewById(R.id.text_tanggallahir_tahun);
+                /**
+                 * End of Objects
+                 * */
+
+                int index;
+                index = position;
+
+                /**
+                 * Set block or unblock
+                 * */
+                if (index > 0)
+                {
+                    spinner_tanggallahir_tanggal.setEnabled(true);
+                    text_tanggallahir_tahun.setEnabled(false);
+                }
+                else
+                {
+                    spinner_tanggallahir_tanggal.setEnabled(false);
+                    text_tanggallahir_tahun.setEnabled(false);
+                }
+
+                /**
+                 * Read index, meanwhile if it's as ganjil set true for LoadTanggalLahirListsTanggal(true) and neither.
+                 * */
+                String tglMid;
+
+                switch (index)
+                {
+                    case 1:
+                        tglMid = SimIDE.tanggallahir_bulan_01;
+                        LoadTanggalLahirListsTanggal(true);
+                        break;
+                    case 2:
+                        tglMid = SimIDE.tanggallahir_bulan_02;
+                        LoadTanggalLahirListsTanggal(false);
+                        break;
+                    case 3:
+                        tglMid = SimIDE.tanggallahir_bulan_03;
+                        LoadTanggalLahirListsTanggal(true);
+                        break;
+                    case 4:
+                        tglMid = SimIDE.tanggallahir_bulan_04;
+                        LoadTanggalLahirListsTanggal(false);
+                        break;
+                    case 5:
+                        tglMid = SimIDE.tanggallahir_bulan_05;
+                        LoadTanggalLahirListsTanggal(true);
+                        break;
+                    case 6:
+                        tglMid = SimIDE.tanggallahir_bulan_06;
+                        LoadTanggalLahirListsTanggal(false);
+                        break;
+                    case 7:
+                        tglMid = SimIDE.tanggallahir_bulan_07;
+                        LoadTanggalLahirListsTanggal(true);
+                        break;
+                    case 8:
+                        tglMid = SimIDE.tanggallahir_bulan_08;
+                        LoadTanggalLahirListsTanggal(true);
+                        break;
+                    case 9:
+                        tglMid = SimIDE.tanggallahir_bulan_09;
+                        LoadTanggalLahirListsTanggal(false);
+                        break;
+                    case 10:
+                        tglMid = SimIDE.tanggallahir_bulan_10;
+                        LoadTanggalLahirListsTanggal(true);
+                        break;
+                    case 11:
+                        tglMid = SimIDE.tanggallahir_bulan_11;
+                        LoadTanggalLahirListsTanggal(false);
+                        break;
+                    case 12:
+                        tglMid = SimIDE.tanggallahir_bulan_12;
+                        LoadTanggalLahirListsTanggal(true);
+                        break;
+                    default:
+                        tglMid = "";
+                        break;
+                }
+
+                /**
+                 * Set variable into memory option
+                 * */
+                SimLog.setTglMid(tglMid);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+    }
+
+    private void ClickTanggalLahirTanggal ()
+    {
+        /**
+         * Object
+         * */
+        spinner_tanggallahir_tanggal = (Spinner) findViewById(R.id.spinner_tanggallahir_tanggal);
+
+        /**
+         * Implement
+         * */
+        spinner_tanggallahir_tanggal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // An item was selected. You can retrieve the selected item using
+                // parent.getItemAtPosition(pos)
+
+                text_tanggallahir_tahun = (EditText) findViewById(R.id.text_tanggallahir_tahun);
+
+                int index;
+                index = position;
+
+                /**
+                 * Set block or unblock
+                 * */
+                if (index > 0)
+                {
+                    text_tanggallahir_tahun.setEnabled(true);
+                }
+                else
+                {
+                    text_tanggallahir_tahun.setEnabled(false);
+                }
+
+                /**
+                 * Set variable declaration
+                 * */
+                String tglRight;
+
+                switch (index)
+                {
+                    case 0:
+                        tglRight = "";
+                        break;
+                    default:
+                        if (index >= 1 && index < 10)
+                        {
+                            tglRight = "0" + index;
+                        }
+                        else
+                        {
+                            tglRight = "" + index;
+                        }
+                        break;
+                }
+
+                /**
+                 * Set variable into memory option
+                 * */
+                SimLog.setTglRight(tglRight);
+
+                view.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+    }
+
     private void Exit ()
     {
         btn_close = (ImageButton) findViewById(R.id.btn_close);
@@ -978,6 +1216,45 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
 
         // Apply the adapter to the spinner
         spinner_pendidikan.setAdapter(adapter);
+    }
+
+    private void LoadTanggalLahirListsBulan ()
+    {
+        spinner_tanggallahir_bulan = (Spinner) findViewById(R.id.spinner_tanggallahir_bulan);
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sim_tanggallahir_bulan, android.R.layout.simple_spinner_item);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        spinner_tanggallahir_bulan.setAdapter(adapter);
+    }
+
+    private void LoadTanggalLahirListsTanggal (Boolean confirm)
+    {
+        spinner_tanggallahir_tanggal = (Spinner) findViewById(R.id.spinner_tanggallahir_tanggal);
+
+        ArrayAdapter<CharSequence> adapter;
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        if (confirm == true)
+        {
+            adapter = ArrayAdapter.createFromResource(this,
+                    R.array.sim_tanggallahir_list_tanggal_31, android.R.layout.simple_spinner_item);
+        }
+        else
+        {
+            adapter = ArrayAdapter.createFromResource(this,
+                    R.array.sim_tanggallahir_list_tanggal_30, android.R.layout.simple_spinner_item);
+        }
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        spinner_tanggallahir_tanggal.setAdapter(adapter);
     }
 
     private void OpenTabs ()
@@ -1219,7 +1496,7 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
         text_tempatlahir = (EditText) findViewById(R.id.text_tempatlahir);
 
         label_tanggallahir = (TextView) findViewById(R.id.label_tanggallahir);
-        text_tanggallahir = (EditText) findViewById(R.id.text_tanggallahir);
+        text_tanggallahir_tahun = (EditText) findViewById(R.id.text_tanggallahir_tahun);
 
         label_pekerjaan = (TextView) findViewById(R.id.label_pekerjaan);
 
@@ -1302,7 +1579,7 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
         text_tempatlahir.setTypeface(typeface_regular);
 
         label_tanggallahir.setTypeface(typeface_semibold);
-        text_tanggallahir.setTypeface(typeface_regular);
+        text_tanggallahir_tahun.setTypeface(typeface_regular);
 
         label_pekerjaan.setTypeface(typeface_semibold);
 
@@ -1369,6 +1646,30 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
             });
         }
         */
+    }
+
+    private void setTahunSmartphone ()
+    {
+        Date date = Calendar.getInstance().getTime();
+
+        DateFormat format = new SimpleDateFormat("yyyy");
+
+        /**
+         * Get year on user smartphone
+         * */
+        String this_year = format.format(date);
+
+        SimLog.setTglLeftSmartphone(this_year);
+    }
+
+    @SuppressWarnings("")
+    private void setTanggalLahir ()
+    {
+        spinner_tanggallahir_tanggal = (Spinner) findViewById(R.id.spinner_tanggallahir_tanggal);
+        text_tanggallahir_tahun = (EditText) findViewById(R.id.text_tanggallahir_tahun);
+
+        spinner_tanggallahir_tanggal.setEnabled(false);
+        text_tanggallahir_tahun.setEnabled(false);
     }
 
 }

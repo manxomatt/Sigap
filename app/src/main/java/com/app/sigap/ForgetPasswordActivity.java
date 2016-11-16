@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.sources.SQLConnection;
+import com.app.sources.UserIDE;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,8 +32,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     /**
      * UI Reference
      * */
-    private TextView label_title, label_email;
-    private EditText text_email;
+    private TextView label_title, label_nomorktp, label_email;
+    private EditText text_nomorktp, text_email;
     private Button button_back, button_submit_forget_password;
     /**
      * End of UI Reference
@@ -91,6 +92,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     private boolean isEmailValid(String email)
     {
         return email.contains("@");
+    }
+
+    private boolean isSpacing (String spacing)
+    {
+        return spacing.contains(" ");
     }
 
     private void RequestPassword (
@@ -176,14 +182,39 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         /**
          * Variables
          * */
+        String nomorktp = text_nomorktp.getText().toString();
         String email = text_email.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
-        if (TextUtils.isEmpty(email))
+        if (TextUtils.isEmpty(nomorktp))
+        {
+            text_nomorktp.setError("* harus diisi");
+            focusView = text_nomorktp;
+            cancel = true;
+        }
+        else if (TextUtils.isEmpty(email))
         {
             text_email.setError("* harus diisi");
+            focusView = text_email;
+            cancel = true;
+        }
+        else if (nomorktp.length() < UserIDE.nomorktp_length)
+        {
+            text_nomorktp.setError("* nomor ktp " + UserIDE.nomorktp_length + " digit");
+            focusView = text_nomorktp;
+            cancel = true;
+        }
+        else if (isSpacing(nomorktp))
+        {
+            text_nomorktp.setError("* tidak boleh ada spasi");
+            focusView = text_nomorktp;
+            cancel = true;
+        }
+        else if (isSpacing(email))
+        {
+            text_email.setError("* tidak boleh ada spasi");
             focusView = text_email;
             cancel = true;
         }
@@ -208,27 +239,39 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     private void setFont()
     {
         label_title = (TextView) findViewById(R.id.label_title);
+        label_nomorktp = (TextView) findViewById(R.id.label_nomorktp);
         label_email = (TextView) findViewById(R.id.label_email);
+
+        text_nomorktp = (EditText) findViewById(R.id.text_nomorktp);
         text_email = (EditText) findViewById(R.id.text_email);
+
         button_back = (Button) findViewById(R.id.button_back);
         button_submit_forget_password = (Button) findViewById(R.id.button_submit_forget_password);
 
         /**
          * Set typeface
          * */
-        Typeface typeface = Typeface.createFromAsset(
+        Typeface typeface_regular = Typeface.createFromAsset(
             getApplicationContext().getAssets(),
             "fonts/titillium_regular_webfont.ttf"
+        );
+        Typeface typeface_semibold = Typeface.createFromAsset(
+            getApplicationContext().getAssets(),
+            "fonts/titillium-semibold-webfont.ttf"
         );
 
         /**
          * Set custom fonts
          * */
-        label_title.setTypeface(typeface);
-        label_email.setTypeface(typeface);
-        text_email.setTypeface(typeface);
-        button_back.setTypeface(typeface);
-        button_submit_forget_password.setTypeface(typeface);
+        label_title.setTypeface(typeface_semibold);
+        label_nomorktp.setTypeface(typeface_semibold);
+        label_email.setTypeface(typeface_semibold);
+
+        text_nomorktp.setTypeface(typeface_regular);
+        text_email.setTypeface(typeface_regular);
+
+        button_back.setTypeface(typeface_regular);
+        button_submit_forget_password.setTypeface(typeface_regular);
     }
 
 }

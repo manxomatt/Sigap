@@ -106,8 +106,12 @@ public class SQLConnection {
      * URL Signup
      * */
     public static final String URL_SIGNUP_MEMBER = URL_HOST + "/sigap/sigap_android/signup_member.php";
-
     public static final String URL_SIGNUP_USER = URL_HOST + "/sigap/sigap_android/signup_user.php";
+
+    /**
+     * URL Pengaturan
+     * */
+    public static final String URL_PENGATURAN_CHANGEPASSWORD = URL_HOST + "/sigap/sigap_android/user_changepassword.php";
 
     /**
      * If login success
@@ -123,22 +127,31 @@ public class SQLConnection {
     public static final String SIGNUP_SUCCESS = "success";
 
     /**
+     * If pengaturan success
+     * */
+    public static final String PENGATURAN_SUCCESS = "success";
+
+    /**
      * Key of shared preferences
      * */
     public static final String SHARED_PREFERENCE_ID_SIGNUP = "SignupActivity";
 
     public static final String SHARED_PREFERENCE_ID_LOGIN = "LoginActivity";
 
+    public static final String SHARED_PREFERENCE_ID_PENGATURAN = "PengaturanActivity";
+
     /**
      * Check key loged in or not, signup or not
      * */
     public static final String SHARED_PREFERENCE_LOGIN = "login";
     public static final String SHARED_PREFERENCE_SIGNUP = "signup";
+    public static final String SHARED_PREFERENCE_PENGATURAN = "pengaturan";
 
     /**
      * Store username login detected, signup detected
      * */
     public static final String SHARED_PREFERENCE_USERNAME = "username";
+    public static final String SHARED_PREFERENCE_PASSWORD =  "password";
     public static final String SHARED_PREFERENCE_NO_KTP = "identity_number";
     public static final String SHARED_PREFERENCE_EMAIL = "email";
 

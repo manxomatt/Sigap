@@ -119,9 +119,51 @@ public interface SimIDE {
     /**
      * Spinner
      * */
+    String spinner_default_bulan_index_0 = "Bulan";
+
+    String spinner_default_tanggal_index_0 = "Tanggal";
+
     String spinner_default_value_index_0 = "Pilih";
     /**
      * End of Spinner
+     * */
+
+    /**
+     * SIM -> Tanggal lahir (bulan)
+     * */
+    String tanggallahir_bulan_01 = "01";
+
+    String tanggallahir_bulan_02 = "02";
+
+    String tanggallahir_bulan_03 = "03";
+
+    String tanggallahir_bulan_04 = "04";
+
+    String tanggallahir_bulan_05 = "05";
+
+    String tanggallahir_bulan_06 = "06";
+
+    String tanggallahir_bulan_07 = "07";
+
+    String tanggallahir_bulan_08 = "08";
+
+    String tanggallahir_bulan_09 = "09";
+
+    String tanggallahir_bulan_10 = "10";
+
+    String tanggallahir_bulan_11 = "11";
+
+    String tanggallahir_bulan_12 = "12";
+    /**
+     * End of SIM -> Tanggal lahir (bulan)
+     * */
+
+    /**
+     * SIM -> Usia minimal
+     * */
+    Integer usia_minimal = 17;
+    /**
+     * End of SIM -> Usia minimal
      * */
 
     /**

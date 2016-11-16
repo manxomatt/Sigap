@@ -14,6 +14,42 @@ public final class SimLog {
 
     private static String NamaAyah, NamaIbu, Pendidikan, CacatFisikLain;
 
+    private static String tglLeft, tglMid, tglRight; //tglLeft -> tahun (yyyy); tglMid -> bulan (MM); tglRight -> tanggal (dd)
+
+    private static String tglLeftSmartphone;
+
+    public static String getTglLeftSmartphone() {
+        return tglLeftSmartphone;
+    }
+
+    public static void setTglLeftSmartphone(String tglLeftSmartphone) {
+        SimLog.tglLeftSmartphone = tglLeftSmartphone;
+    }
+
+    public static String getTglLeft() {
+        return tglLeft;
+    }
+
+    public static void setTglLeft(String tglLeft) {
+        SimLog.tglLeft = tglLeft;
+    }
+
+    public static String getTglMid() {
+        return tglMid;
+    }
+
+    public static void setTglMid(String tglMid) {
+        SimLog.tglMid = tglMid;
+    }
+
+    public static String getTglRight() {
+        return tglRight;
+    }
+
+    public static void setTglRight(String tglRight) {
+        SimLog.tglRight = tglRight;
+    }
+
     public static String getNamaAyah() {
         return NamaAyah;
     }

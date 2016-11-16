@@ -4,31 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_splash"
+    android:fitsSystemWindows="true"
     tools:context="com.app.sigap.SplashScreen">
-
-    <ImageView
-        android:src="@drawable/img_splash"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
         android:weightSum="1">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="125dp"
+            android:layout_height="65dp"
             app:srcCompat="@drawable/logo_new"
             android:gravity="bottom|center_horizontal"
             android:id="@+id/img_logo_polres"
             android:layout_weight="0.18"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="75dp"
+            android:layout_marginBottom="5dp"
             tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
         <TableRow

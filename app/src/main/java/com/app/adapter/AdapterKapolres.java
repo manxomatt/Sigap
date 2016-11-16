@@ -15,16 +15,16 @@ import com.app.sources.Data;
 import java.util.List;
 
 /**
- * Created by blue on 08/11/16.
+ * Created by blue on 15/11/16.
  */
 
-public class Adapter extends BaseAdapter {
+public class AdapterKapolres extends BaseAdapter {
 
     private Activity activity;
     private LayoutInflater inflater;
     private List<Data> items;
 
-    public Adapter(Activity activity, List<Data> items) {
+    public AdapterKapolres(Activity activity, List<Data> items) {
         this.activity = activity;
         this.items = items;
     }
@@ -51,32 +51,29 @@ public class Adapter extends BaseAdapter {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.list_row_polisi, null);
+            convertView = inflater.inflate(R.layout.list_row_kapolres, null);
 
         Typeface typeface_regular = Typeface.createFromAsset(
-            inflater.inflate(R.layout.list_row_polisi, null).getContext().getApplicationContext().getAssets(),
+            inflater.inflate(R.layout.list_row_kapolres, null).getContext().getApplicationContext().getAssets(),
             "fonts/titillium_regular_webfont.ttf"
         );
         Typeface typeface_semibold = Typeface.createFromAsset(
-            inflater.inflate(R.layout.list_row_polisi, null).getContext().getApplicationContext().getAssets(),
+            inflater.inflate(R.layout.list_row_kapolres, null).getContext().getApplicationContext().getAssets(),
             "fonts/titillium-semibold-webfont.ttf"
         );
 
         TextView id = (TextView) convertView.findViewById(R.id.id);
         TextView nama = (TextView) convertView.findViewById(R.id.nama);
-        TextView alamat = (TextView) convertView.findViewById(R.id.alamat);
-        TextView telepon = (TextView) convertView.findViewById(R.id.telepon);
+        TextView keterangan = (TextView) convertView.findViewById(R.id.keterangan);
 
         nama.setTypeface(typeface_semibold);
-        alamat.setTypeface(typeface_regular);
-        telepon.setTypeface(typeface_regular);
+        keterangan.setTypeface(typeface_regular);
 
         Data data = items.get(position);
 
         id.setText(data.getId());
         nama.setText(data.getNama());
-        alamat.setText(data.getAlamat());
-        telepon.setText(data.getTelepon());
+        keterangan.setText(data.getKeterangan());
 
         return convertView;
     }
