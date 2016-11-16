@@ -324,6 +324,7 @@
         GPS is disabled in your device. Would you like to enable it?
     </string>
 
+<<<<<<< HEAD
     <string-array name="related_arrays">
         <item>Kritik dan Saran</item>
         <item>Laporan Kejahatan</item>
@@ -337,4 +338,19 @@
     <string name="longitude">longitude</string>
     <string name="title_activity_panic_shot">Panic Shot</string>
     <string name="panic_situation_img_cd">Panic situation</string>
+=======
+	<string-array name="related_arrays">
+		<item>Kritik dan Saran</item>
+		<item>Laporan Kejahatan</item>
+		<item>Laporan Narkoba</item>
+	</string-array>
+	<string name="title_activity_location_map">LocationMapActivity</string>
+	<!-- End of Yudi -->
+
+	<string name="panic_button_tap_counter_needed">%d kali tap lagi untuk mengirim request</string>
+	<string name="latitude">latitude</string>
+	<string name="longitude">longitude</string>
+	<string name="title_activity_panic_shot">Panic Shot</string>
+	<string name="panic_situation_img_cd">Panic situation</string>
+>>>>>>> origin/master
 </resources>

@@ -68,6 +68,7 @@ public class MainMenuActivity extends AppCompatActivity
 
     private MenuItem nav_menu_informasi;
     private MenuItem nav_menu_aplikasi;
+
     /**
      * End of ui reference
      * */
@@ -75,10 +76,18 @@ public class MainMenuActivity extends AppCompatActivity
     /**
      * Variables
      * */
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     private static final int TAG_CODE_PERMISSION_LOCATION = 1945;
     private TapPanicState tapPanicState;
     private double latitude;
     private double longitude;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     /**
      * End of Variables
      * */
@@ -88,6 +97,7 @@ public class MainMenuActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
 
         getWindow().setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -595,4 +605,53 @@ public class MainMenuActivity extends AppCompatActivity
         mi.setTitle(mNewTitle);
     }
 
+
+    @Override
+    public void onLocationChanged(Location location) {
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+
+        Intent intent = new Intent(this, PanicShotActivity.class);
+
+        intent.putExtra(getResources().getString(R.string.latitude), latitude);
+        intent.putExtra(getResources().getString(R.string.longitude), longitude);
+
+        startActivity(intent);
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
+    private class TapPanicState {
+        int TAP_NEEDED = 3;
+        int tapCounter;
+
+        void increase() {
+            tapCounter++;
+        }
+
+        void reset() {
+            tapCounter = 0;
+        }
+
+        boolean maxTapReached() {
+            return tapCounter == (TAP_NEEDED - 1);
+        }
+
+        int getRemainingTap() {
+            return TAP_NEEDED - tapCounter;
+        }
+    }
 }

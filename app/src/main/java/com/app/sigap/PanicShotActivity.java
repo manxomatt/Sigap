@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 package com.app.sigap;
 
 import android.Manifest;
@@ -11,7 +14,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+<<<<<<< HEAD
 import android.provider.Settings;
+=======
+>>>>>>> origin/master
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -182,8 +188,11 @@ public class PanicShotActivity extends AppCompatActivity {
                 imgTakenPath = uriFilePath.getPath();
 
                 bindImageFromPath(imgTakenPath);
+<<<<<<< HEAD
 
                 System.out.println(imgTakenPath);
+=======
+>>>>>>> origin/master
             }
         }
     }
@@ -197,4 +206,8 @@ public class PanicShotActivity extends AppCompatActivity {
             imgPanicSituation.setImageBitmap(myBitmap);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <manifest
     package="com.app.sigap"
+=======
+<manifest package="com.app.sigap"
+>>>>>>> origin/master
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk
@@ -243,7 +247,10 @@
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
 
+<<<<<<< HEAD
         <!-- Tombol Panik -->
+=======
+>>>>>>> origin/master
         <activity
             android:name=".PanicShotActivity"
             android:label="@string/title_activity_panic_shot"
@@ -253,7 +260,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.master.MainMenuActivity" />
         </activity>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     </application>
 
 </manifest>
