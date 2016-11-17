@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Sigap.iml" filepath="$PROJECT_DIR$/Sigap.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/sendbird/sendbird.iml" filepath="$PROJECT_DIR$/sendbird/sendbird.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sigap_last.iml" filepath="$PROJECT_DIR$/sigap_last.iml" />
     </modules>
   </component>
 </project>
