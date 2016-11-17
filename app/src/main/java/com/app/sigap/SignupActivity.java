@@ -27,6 +27,9 @@ import com.app.sources.MemberLog;
 import com.app.sources.SQLConnection;
 import com.app.sources.UserIDE;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -211,9 +214,28 @@ public class SignupActivity extends AppCompatActivity {
                     boolean cancel = false;
                     View focusView = null;
 
+                    JSONObject jsonObject = null;
+                    try{
+
+                        jsonObject = new JSONObject(response);
+                        if(jsonObject.getBoolean("success") == true){
+
+                            Intent intent = new Intent(SignupActivity.this, SignVerificationActivity.class);
+                            intent.putExtra("data",jsonObject.getJSONObject("data").toString());
+                            startActivity(intent);
+
+                        }else{
+                            String message = jsonObject.getString("message");
+                            focusView.requestFocus();
+                        }
+                    }catch(JSONException e){
+                        e.printStackTrace();
+                    }
+
                     /**
                      * Jika respon gagal
                      * */
+                    /*
                     if (response.equalsIgnoreCase(SQLConnection.SIGNUP_KTP_FOUND))
                     {
                         text_nomor_ktp.setError("* " + SQLConnection.SIGNUP_KTP_FOUND);
@@ -236,6 +258,7 @@ public class SignupActivity extends AppCompatActivity {
                         /**
                          * Buatkan sebuah shared preference
                          * */
+                     /*
                         SharedPreferences sharedPreferences;
                         sharedPreferences = SignupActivity.this.getSharedPreferences(
                             SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
@@ -244,38 +267,36 @@ public class SignupActivity extends AppCompatActivity {
                         /**
                          * Buatkan Sebuah variabel Editor Untuk penyimpanan Nilai shared preferences
                          * */
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                       // SharedPreferences.Editor editor = sharedPreferences.edit();
 
                         /**
                          * Simpan Nilai ke Variabel editor
                          * */
-                        editor.commit();
+                       // editor.commit();
 
                         /**
                          * Tambahkan Nilai ke Editor
                          * */
-                        editor.putString(SQLConnection.SHARED_PREFERENCE_NO_KTP, nomor_ktp);
+                        //editor.putString(SQLConnection.SHARED_PREFERENCE_NO_KTP, nomor_ktp);
 
                         /**
                          * Set variables into memory options
                          * */
-                        MemberLog.setNoKTP(nomor_ktp);
+
+                        /*MemberLog.setNoKTP(nomor_ktp);
                         MemberLog.setNamaLengkap(nama_lengkap);
                         MemberLog.setEmail(email);
 
                         /**
                          * Start sign verification
                          * */
-                        Intent intent = new Intent(
-                            SignupActivity.this, SignVerificationActivity.class
-                        );
-                        startActivity(intent);
+                        /*
 
                         /**
                          * End of signup activity
                          * */
-                        finishAffinity();
-                    }
+                        //
+                    //}
                 }
             },
             new Response.ErrorListener()

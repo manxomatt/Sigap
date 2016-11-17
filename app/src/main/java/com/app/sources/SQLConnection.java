@@ -155,4 +155,5 @@ public class SQLConnection {
     public static final String SHARED_PREFERENCE_NO_KTP = "nomorktp"; //identity_number
     public static final String SHARED_PREFERENCE_EMAIL = "email";
 
+
 }
