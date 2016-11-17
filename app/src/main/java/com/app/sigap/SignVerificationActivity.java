@@ -29,6 +29,9 @@ import com.app.sources.MainMenuIDE;
 import com.app.sources.MemberLog;
 import com.app.sources.SQLConnection;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -51,6 +54,9 @@ public class SignVerificationActivity extends AppCompatActivity {
     /**
      * End of UI Reference
      * */
+
+    String id_member;
+    String verification_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +95,22 @@ public class SignVerificationActivity extends AppCompatActivity {
          * */
     }
 
+    private void getIntentData(){
+        Intent i = getIntent();
+        String data = i.getExtras().getString("data");
+
+        JSONObject jsonData = null;
+
+        try {
+            jsonData = new JSONObject(data);
+            id_member = jsonData.getString("id");
+            verification_code = jsonData.getString("verification_code");
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
     private void SaveUserSignup(
         final String kode_verifikasi, final String username,  final String password
     )
@@ -109,9 +131,26 @@ public class SignVerificationActivity extends AppCompatActivity {
                                 boolean cancel = false;
                                 View focusView = null;
 
+                                JSONObject jsonObject = null;
+                                JSONObject jsonData   = null;
+                                try{
+
+                                    jsonObject = new JSONObject(response);
+
+                                    if(jsonObject.getBoolean("success") == true){
+
+                                        jsonData = jsonObject.getJSONObject("data");
+                                        setMessage();
+                                    }else{
+                                        focusView.requestFocus();
+                                    }
+                                }catch (JSONException e){
+                                    e.printStackTrace();
+                                }
                                 /**
                                  * Jika respon gagal
                                  * */
+                                /*
                                 if(!response.equalsIgnoreCase(SQLConnection.SIGNUP_SUCCESS))
                                 {
                                     text_username.setError("* username sudah ada");
@@ -127,6 +166,7 @@ public class SignVerificationActivity extends AppCompatActivity {
                                 {
                                     setMessage();
                                 }
+                                */
                             }
                         },
                         new Response.ErrorListener()
@@ -153,10 +193,11 @@ public class SignVerificationActivity extends AppCompatActivity {
                  * Set parameter to send database
                  * */
                 Map<String,String> params = new HashMap<String, String>();
-                params.put(SQLConnection.KEY_NO_KTP, nomor_ktp);
+                //params.put(SQLConnection.KEY_NO_KTP, nomor_ktp);
+                params.put("id_member",id_member);
                 params.put(SQLConnection.KEY_USERNAME, username);
                 params.put(SQLConnection.KEY_PASSWORD, password);
-                params.put(SQLConnection.KEY_EMAIL, email);
+                //params.put(SQLConnection.KEY_EMAIL, email);
                 params.put(SQLConnection.KEY_KODE_VERIFIKASI, kode_verifikasi);
                 return params;
             }
@@ -304,7 +345,7 @@ public class SignVerificationActivity extends AppCompatActivity {
 
         text_kode_verifikasi = (EditText) findViewById(R.id.text_kode_verifikasi);
         text_kode_verifikasi.setEnabled(false);
-        text_kode_verifikasi.setText(currentTime);
+        text_kode_verifikasi.setText(verification_code);//currentTime);
 
         text_username.requestFocus();
     }
