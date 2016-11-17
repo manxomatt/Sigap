@@ -35,20 +35,20 @@ public class SQLConnection {
     /**
      * IP Public
      * */
-    private static final String URL_HOST = "http://110.50.84.171";
+    private static final String URL_HOST = "http://192.168.43.57";//"http://110.50.84.171";
 
     /**
      * URL Bantuan Terdekat (Polisi)
      * */
-    public static final String URL_BANTUAN_TERDEKAT_POLISI = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI = URL_HOST+"/sigap/sigap_android/kuncoro_crud/";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_SELECT = URL_HOST + "/sigap/sigap_android/show_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_INSERT = URL_HOST + "/sigap/sigap_android/insert_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_EDIT = URL_HOST + "/sigap/sigap_android/edit_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_UPDATE = URL_HOST + "/sigap/sigap_android/update_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_DELETE = URL_HOST + "/sigap/sigap_android/delete_help_police.php";
-    public static final String URL_BANTUAN_TERDEKAT_RS = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
-    public static final String URL_BANTUAN_TERDEKAT_DAMKAR = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
-    public static final String URL_BANTUAN_TERDEKAT_SPBU = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_RS = URL_HOST+"/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_DAMKAR = URL_HOST+"/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_SPBU = URL_HOST+"/sigap/sigap_android/kuncoro_crud/";
 
     /**
      * URL Berita Polres
@@ -64,7 +64,7 @@ public class SQLConnection {
     /**
      * URL select data kapolres
      * */
-    public static final String URL_POLRES_SELECT_KAPOLRES = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/select_kapolres.php";
+    public static final String URL_POLRES_SELECT_KAPOLRES = URL_HOST+"/sigap/sigap_android/kuncoro_crud/select_kapolres.php";
 
     /**
      * URL Registrasi SIM
