@@ -81,6 +81,7 @@ public class SignVerificationActivity extends AppCompatActivity {
         text_password = (EditText) findViewById(R.id.text_password);
         text_repeat_password = (EditText) findViewById(R.id.text_repeat_password);
 
+        getIntentData();
         setCode();
 
         Button button_save = (Button) findViewById(R.id.button_save);

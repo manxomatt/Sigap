@@ -28,6 +28,9 @@ import com.android.volley.toolbox.Volley;
 import com.app.master.MainMenuActivity;
 import com.app.sources.SQLConnection;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -198,10 +201,68 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         boolean cancel = false;
                         View focusView = null;
+                        JSONObject jsonObject = null;
+                        JSONObject jsonData   = null;
 
+                        try{
+                            jsonObject = new JSONObject(response);
+
+                            if(jsonObject.getBoolean("success") == true){
+                                jsonData = jsonObject.getJSONObject("data");
+                                String username = jsonData.getString("username");
+                                String full_name = jsonData.getString("full_name");
+                                String id_member = jsonData.getString("id");
+                                /**
+                                 * Buatkan sebuah shared preference
+                                 * */
+                                SharedPreferences sharedPreferences;
+                                sharedPreferences = LoginActivity.this.getSharedPreferences(
+                                        SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+                                );
+
+                                /**
+                                 * Buatkan Sebuah variabel Editor Untuk penyimpanan Nilai shared preferences
+                                 * */
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                                /**
+                                 * Tambahkan Nilai ke Editor
+                                 * */
+
+                                editor.putBoolean(SQLConnection.SHARED_PREFERENCE_LOGIN, true);
+                                editor.putString(SQLConnection.SHARED_PREFERENCE_USERNAME, username);
+                                editor.putString(SQLConnection.SHARED_PREFERENCE_FULL_NAME,full_name);
+                                editor.putString(SQLConnection.SHARED_PREFERENCE_ID_MEMBER, id_member);
+                                //*/
+                                /**
+                                 * Simpan Nilai ke Variabel editor
+                                 * */
+                                 editor.commit();
+
+                                /**
+                                 * Start main menu activity
+                                 * */
+                                 Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                                 startActivity(intent);
+
+                                /**
+                                 * End of login activity
+                                 * */
+                                 finishAffinity();
+                            }else{
+                                text_username.setError("* " + SQLConnection.LOGIN_FAILED);
+                                focusView = text_username;
+                                focusView.requestFocus();
+                                String message = jsonObject.getString("message");
+                                Toast.makeText(getApplication(),message,Toast.LENGTH_SHORT).show();
+                            }
+                        }catch(JSONException e){
+                            e.printStackTrace();
+                        }
                         /**
                          * Jika Respon server gagal
                          * */
+                        /*
                         if(!response.substring(0, 7).equalsIgnoreCase(SQLConnection.LOGIN_SUCCESS))
                         {
                             text_username.setError("* " + SQLConnection.LOGIN_FAILED);
@@ -217,56 +278,21 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             String nomorktp = response.substring(8);
 
-                            /**
-                             * Buatkan sebuah shared preference
-                             * */
-                            SharedPreferences sharedPreferences;
-                            sharedPreferences = LoginActivity.this.getSharedPreferences(
-                                SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
-                            );
 
-                            /**
-                             * Buatkan Sebuah variabel Editor Untuk penyimpanan Nilai shared preferences
-                             * */
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                            /**
-                             * Tambahkan Nilai ke Editor
-                             * */
-                            editor.putBoolean(SQLConnection.SHARED_PREFERENCE_LOGIN, true);
-                            editor.putString(SQLConnection.SHARED_PREFERENCE_USERNAME, username);
-                            editor.putString(SQLConnection.SHARED_PREFERENCE_PASSWORD, password);
-                            editor.putString(SQLConnection.SHARED_PREFERENCE_NO_KTP, nomorktp);
-
-                            /**
-                             * Simpan Nilai ke Variabel editor
-                             * */
-                            editor.commit();
 
                             /* this is how to get values of shared preference :*/
-                            sharedPreferences = getSharedPreferences(SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE);
+                            //sharedPreferences = getSharedPreferences(SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE);
 
-                            String message;
-                            message = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_USERNAME, "") + "\n";
-                            message = message + sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_PASSWORD, "");
-                            System.out.println(message);
+                            //String message;
+                            //message = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_USERNAME, "") + "\n";
+                            //message = message + sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_PASSWORD, "");
+                            //System.out.println(message);
                             /*
                             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
                             */
 
-                            /**
-                             * Start main menu activity
-                             * */
-                            Intent intent = new Intent(
-                                LoginActivity.this, MainMenuActivity.class
-                            );
-                            startActivity(intent);
 
-                            /**
-                             * End of login activity
-                             * */
-                            finishAffinity();
-                        }
+                        //}
                     }
                 },
                 new Response.ErrorListener() {
