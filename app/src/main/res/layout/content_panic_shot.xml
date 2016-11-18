@@ -29,7 +29,8 @@
         android:id="@+id/btnSend"
         android:layout_below="@id/txtDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Kirim" />
 
 </RelativeLayout>
 <!-- =======

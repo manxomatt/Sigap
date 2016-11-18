@@ -16,6 +16,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -108,8 +109,10 @@ public class PanicShotActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
+                Intent intent = getIntent();
+                setupVariables(intent);
             }
         });
 
@@ -129,12 +132,12 @@ public class PanicShotActivity extends AppCompatActivity {
     private void sendRequest() {
         String description = txtDescription.getText().toString();
         File file = new File(imgTakenPath);
-
+        Log.d("PanicShotActivity","Lat : "+latitude+" Lon : "+longitude);
         // TODO: send the request here with parameter description, file, latitude, longitude
     }
 
     private void setupVariables(Intent intent) {
-        latitude = intent.getDoubleExtra("latitude", 0);
+        latitude  = intent.getDoubleExtra("latitude", 0);
         longitude = intent.getDoubleExtra("longitude", 0);
 
         //todo: show camera and take the shot
